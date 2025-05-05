@@ -14,7 +14,6 @@
 }
 
 .Notice {
-    padding: 1vw;
     border-radius: 3%;
 }
 
@@ -24,6 +23,13 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
+    display:inline-block;
+}
+
+.CollapseCu{
+    padding: 1vw;
+    background: #9F86C0;
+    border-radius: 5%;
 }
 
 .Dia {
@@ -32,6 +38,8 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
+    display:inline-table;
+
 }
 
 .Noche {
@@ -40,6 +48,8 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
+    display:inline-block;
+
 }
 
 .Porcentaje {
@@ -52,10 +62,26 @@
 
 .btnPro{
     background-color: #9F86C0;
-    padding: 1vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding-left: 7vw;
+    padding-right: 7vw;
     border-radius: 10%;
+}
+
+.btnS{
+    li{
+        padding: 1vw;
+        display:inline-block;
+    }
+    button{
+        border-radius: 100%;
+        width:  3vw;
+        height: 3vw;
+        background-color: #5e548e93;
+        border: none;
+        img{
+            width: 2vw;
+        }
+    }
 }
 
 @media (max-width: 412px) {
@@ -78,14 +104,19 @@
 
     .Amanecer {
         grid-area: 2 / 1 / 3 / 4;
+        display:inline;
     }
 
     .Dia {
         grid-area: 3 / 1 / 4 / 4;
+        display:inline;
+
     }
 
     .Noche {
         grid-area: 4 / 1 / 5 / 4;
+        display:inline;
+        
     }
 
     .Boton {
@@ -98,6 +129,34 @@
 
     .Porcentaje {
         visibility: hidden;
+    }
+    .CollapseCu{
+        padding: 1vw;
+        background: #9F86C0;
+        border-radius: 5%;
+    }
+    .btnPro{
+        background-color: #9F86C0;
+        padding-left: 7vw;
+        padding-right: 7vw;
+        border-radius: 10%;
+    }
+    
+    .btnS{
+        li{
+            padding: 1vw;
+            display:inline-block;
+        }
+        button{
+            border-radius: 100%;
+            width:  12vw;
+            height: 12vw;
+            background-color: #5e548e93;
+            border: none;
+            img{
+                width: 8vw;
+            }
+        }
     }
 }
 
