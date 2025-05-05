@@ -23,7 +23,7 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
-    display:inline-block;
+    display:flex;
 }
 
 .CollapseCu{
@@ -38,7 +38,7 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
-    display:inline-table;
+    display:flex;
 
 }
 
@@ -48,7 +48,7 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
-    display:inline-block;
+    display:flex;
 
 }
 
