@@ -158,6 +158,9 @@
             }
         }
     }
+    .exists2{
+        visibility: hidden;
+    }
 }
 
 @media (min-width: 413px) {
@@ -202,5 +205,9 @@
 
     .Porcentaje {
         grid-area: 4 / 2 / 5 / 5;
+    }
+
+    .exists1{
+        visibility: hidden;
     }
 }
