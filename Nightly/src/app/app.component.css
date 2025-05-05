@@ -1,0 +1,32 @@
+/*Paleta de colores*/
+background-1{color:#100928;}
+background-2{color:#4D3758;}
+
+btn-inicio-1{color: #9F86C0;}
+btn-inicio-2{color: #4B3F5A;}
+
+track-back{color: #9F86C0;}
+
+/* degradado de track-back con btn-inicio-2 con 30% transparencia
+        track-back-trans
+        track-notice
+        peso-principal
+*/
+
+btn-peso{color: #515070;}
+btn-peso-2{color: #583752;}
+
+info-back{color: #796FAA;}
+
+/* progress-bar
+        completed: info-back
+        left: background-2
+*/
+
+router-outlet{
+    background-color: #100928;
+}
+
+html{
+        background-color: #100928;
+}

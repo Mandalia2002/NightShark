@@ -1,0 +1,122 @@
+/*Paleta de colores*/
+html {
+        color: #100928;
+}
+
+background-2 {
+        color: #4D3758;
+}
+
+btn-inicio-1 {
+        color: #9F86C0;
+}
+
+btn-inicio-2 {
+        color: #4B3F5A;
+}
+
+track-back {
+        color: #9F86C0;
+}
+
+/* degradado de track-back con btn-inicio-2 con 30% transparencia
+        track-back-trans
+        track-notice
+        peso-principal
+*/
+
+btn-peso {
+        color: #515070;
+}
+
+btn-peso-2 {
+        color: #583752;
+}
+
+info-back {
+        color: #796FAA;
+}
+
+/* progress-bar
+        completed: info-back
+        left: background-2
+*/
+
+.full {
+        padding-top: 10vw;
+        text-align: center;
+}
+
+.logoIn {
+        width: 15vw;
+        text-align: center;
+}
+
+.btnss {
+        padding-top: 5vw;
+        text-decoration: none;
+        /* text-align: center; */
+
+        li {
+                list-style: none;
+                padding: 2vw;
+        }
+}
+
+.btnIn {
+        width: 15vw;
+}
+
+@media (max-width: 412px) {
+        .full {
+                padding-top: 15vw;
+                text-align: center;
+        }
+        
+        .logoIn {
+                width: 30vw;
+                text-align: center;
+        }
+        
+        .btnss {
+                padding-top: 10vw;
+                text-decoration: none;
+                /* text-align: center; */
+        
+                li {
+                        list-style: none;
+                        padding: 5vw;
+                }
+        }
+        
+        .btnIn {
+                width: 30vw;
+        }
+
+}
+
+@media only screen and (min-width: 413px) {
+        .full {
+                text-align: center;
+        }
+        
+        .logoIn {
+                width: 13vw;
+                text-align: center;
+        }
+        
+        .btnss {
+                text-decoration: none;
+                /* text-align: center; */
+        
+                li {
+                        list-style: none;
+                        display: inline;
+                        padding: 5vw;
+                }
+        }
+        
+        .btnIn {
+                width: 10vw;
+        }
+}        
