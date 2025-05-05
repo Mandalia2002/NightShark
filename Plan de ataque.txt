@@ -14,3 +14,8 @@ Backend:
 La idea del funcionamiento para evitar usar un servidor o una conexion 
 que este activa 24/7 se creara un archivo JSON en la app que se almacenara localmente
 y un boton lo sincronizara a la base de datos asi mismo borrando el archivo JSON para evitar que consuma espacio :3
+
+Se hara una pagina en Angular responsiva (version beta/develop)
+De ahi se empaquetara de ambas formas:
+    -Electron para Escritorio
+    -Cordova para Movil
