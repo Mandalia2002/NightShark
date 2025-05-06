@@ -1,6 +1,6 @@
 .parent {
     text-decoration: none;
-
+    color: #9F86C0;
     li {
         list-style: none;
     }
@@ -13,8 +13,7 @@
     padding: 2vw;
 }
 
-.Graph1{
-    padding-top: 3vw;
+.sandia{
     visibility: visible;
 }
 
@@ -198,7 +197,7 @@
         grid-row-gap: 15px;
     }
 
-    .Graph1{
+    .sandia{
         display:none;
     }
 
@@ -223,7 +222,6 @@
         background: #4D3758;
         background: linear-gradient(180deg, rgba(77, 55, 88, 0.5) 100%, rgba(88, 55, 82, 0.5) 0%);
         text-align: center;
-
     }
 
     .Amanecer {

@@ -1,5 +1,6 @@
 .parent{
     padding: 2vw;
+    color:#9F86C0;
 }
 
 .Boton{
@@ -20,6 +21,14 @@
     }
 }
 
+.vertical {
+    display: inline-block;
+    width: 15%;
+    height: 100%;
+    /* -webkit-transform: rotate(-90deg); Chrome, Safari, Opera */
+    /* transform: rotate(-90deg); */
+  }
+
 .Peso{
     background: #4B3F5A;
     background: linear-gradient(180deg, rgba(75, 63, 90, 0.3) 100%, rgba(159, 134, 192, 0.3) 0%);
@@ -33,7 +42,25 @@
     border-radius: 3%;
 }
 
+.Progress{
+    text-align: center;
+}
 
+button {
+    border-radius: 10%;
+    width: 10vw;
+    height: 3vw;
+    background-color: #5e548e93;
+    border: none;
+}
+button:hover{
+    background-color: #4D3758;
+    color: #9F86C0;
+    transition: 0.2ms ease-in-out;
+}
+button:checked{
+    background-color: #4D3758;
+}
 
 @media (max-width: 412px) {
     .parent {
@@ -44,6 +71,22 @@
         grid-row-gap: 20px;
         padding: 4vw;
     }
+
+    button {
+        border-radius: 10%;
+        width: 20vw;
+        height: 10vw;
+        background-color: #5e548e93;
+        border: none;
+    }
+
+    .vertical {
+        display: inline-block;
+        width: 20%;
+        height: 100%;
+        /* -webkit-transform: rotate(-90deg); Chrome, Safari, Opera */
+        /* transform: rotate(-90deg); */
+      }
 
     .Inicio {
         grid-area: 4 / 1 / 5 / 4;
@@ -96,7 +139,7 @@
 
     .Progress {
         grid-area: 2 / 6 / 5 / 7;
-        padding: 2vw;
+        padding: 1vw;
     }
 
     .Extra {

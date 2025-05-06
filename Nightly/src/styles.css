@@ -4,4 +4,7 @@ html, body{
     min-width: 100%;
     background: #4D3758;
     background: linear-gradient(180deg, rgba(77, 55, 88, 1) 0%, rgba(16, 9, 40, 1) 100%);
+    font-family: monospace;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
