@@ -4,19 +4,11 @@
 @use '@angular/material' as mat;
 
 html {
-  @include mat.theme((
-    color: (
-      theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+  height: 100%;
 }
 
 :root {
-  @include mat.checkbox-overrides((
-    touch-target-display: none
+  @include mat.progress-spinner-overrides((
+    active-indicator-color: orange,
   ));
 }
