@@ -27,6 +27,7 @@ track-back {
 
 btn-peso {
         color: #515070;
+        
 }
 
 btn-peso-2 {
@@ -118,5 +119,12 @@ info-back {
         
         .btnIn {
                 width: 10vw;
+        }
+
+        .btnIn:hover{
+                border-radius: 100%;
+                box-shadow: #c599c9 1px 1px 100px;
+                transition: 1s ease-in;
+                transition: 1s ease-out;
         }
 }        
