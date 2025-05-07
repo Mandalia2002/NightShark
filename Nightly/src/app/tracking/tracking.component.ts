@@ -1,6 +1,5 @@
-import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -9,13 +8,13 @@ import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    JsonPipe,
     MatCheckboxModule,
-    NgbProgressbarModule
+    NgbProgressbarModule,
   ],
   templateUrl: './tracking.component.html',
-  styleUrl: './tracking.component.css'
+  styleUrl: './tracking.component.css',
 })
+
 export class TrackingComponent {
   private readonly _formBuilder = inject(FormBuilder);
 

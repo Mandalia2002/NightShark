@@ -6,10 +6,10 @@
     background: linear-gradient(180deg, rgba(77, 55, 88, 1) 0%, rgba(16, 9, 40, 1) 100%);
     font-family: monospace;
 } */
-
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
 html,
 body {
-    /* background: linear-gradient(317deg, #100928, #5f4e75, #100928); */
+    background: linear-gradient(90deg, #100928, #5f4e75, #100928);
     background-size: 120%;
     animation: gradient-animation 8s ease infinite;
 }
@@ -17,7 +17,7 @@ body {
 @keyframes gradient-animation {
     0% {
         background-color: linear-gradient(317deg, #100928, #5f4e75, #100928);
-        background-position: 0% 50%;
+        background-position: 0% 20%;
     }
 
     50% {
@@ -27,10 +27,12 @@ body {
 
     100% {
         background-color: linear-gradient(317deg, #100928, #7a33d8, #100928);
-        background-position: 0% 50%;
+        background-position: 0% 20%;
     }
 }
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

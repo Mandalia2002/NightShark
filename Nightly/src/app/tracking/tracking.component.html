@@ -1,3 +1,7 @@
+<div class="Boton1">
+    <a href="/Inicio" class="btnReg"><img src="assets/inicial.svg" alt=""></a>
+</div>
+
 <div class="parent">
     <div class="Notice">
         <p>El dia de hoy es </p>
@@ -15,89 +19,96 @@
         </li>
     </div>
 
-    <div class="Amanecer">
-        <div class="CollapseCu">
-            <p class="d-inline-flex gap-1">
-                <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
-                    Amanecer
-                </a>
-            </p>
-            <div class="progress vertical sandia">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
-                    aria-valuemax="100" style="width: 45%;">
-                </div>
-            </div>
-            <div class="collapse" id="collapseExample">
-                <section [formGroup]="amanecerS">
-                    <div class="btnS">
-                        <li><button formControlName="Hora"><img src="assets/moonshot.svg" alt=""></button></li>
-                        <li><button formControlName="Cama"><img src="assets/sueño.svg" alt=""></button></li>
-                        <li><button formControlName="Escritorio"><img src="assets/futuro.svg" alt=""></button></li>
-                        <li><button formControlName="Dientes"><img src="assets/sonrisa.svg" alt=""></button></li>
-                        <li><button formControlName="Cara"><img src="assets/mirada.svg" alt=""></button></li>
-                        <li><button formControlName="Cuerpo"><img src="assets/ser.svg" alt=""></button></li>
+    <div class="tracks">
+        <div class="Amanecer">
+            <div class="CollapseCu">
+                <p class="d-inline-flex gap-1">
+                    <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Amanecer
+                    </a>
+                </p>
+                <div class="progress vertical sandia">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
+                        aria-valuemax="100" style="width: 45%;">
                     </div>
-                </section>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <section [formGroup]="amanecerS">
+                        <div class="btnS">
+                            <li><button formControlName="Hora"><img src="assets/moonshot.svg" alt=""></button></li>
+                            <li><button formControlName="Cama"><img src="assets/sueño.svg" alt=""></button></li>
+                            <li><button formControlName="Escritorio"><img src="assets/futuro.svg" alt=""></button></li>
+                            <li><button formControlName="Dientes"><img src="assets/sonrisa.svg" alt=""></button></li>
+                            <li><button formControlName="Cara"><img src="assets/mirada.svg" alt=""></button></li>
+                            <li><button formControlName="Cuerpo"><img src="assets/ser.svg" alt=""></button></li>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="Spin">
             </div>
         </div>
-    </div>
 
-    <div class="Dia">
-        <div class="CollapseCu">
-            <p class="d-inline-flex gap-1">
-                <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
-                    Dia
-                </a>
-            </p>
-            <div class="progress vertical sandia">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
-                    aria-valuemax="100" style="width: 45%;">
+        <div class="Dia">
+            <div class="CollapseCu">
+                <p class="d-inline-flex gap-1">
+                    <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample2" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Dia
+                    </a>
+                </p>
+                <div class="progress vertical sandia">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
+                        aria-valuemax="100" style="width: 45%;">
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample2">
+                    <div class="btnS">
+                        <li><button><img src="assets/ejercicio.svg" alt=""></button></li>
+                        <li><button><img src="assets/dailies.svg" alt=""></button></li>
+                        <li><button><img src="assets/esencia.svg" alt=""></button></li>
+                        <li><button><img src="assets/trabajo.svg" alt=""></button></li>
+                        <li><button><img src="assets/oceano.svg" alt=""></button></li>
+                        <li><button><img src="assets/stars.svg" alt=""></button></li>
+                    </div>
                 </div>
             </div>
-            <div class="collapse" id="collapseExample2">
-                <div class="btnS">
-                    <li><button><img src="assets/ejercicio.svg" alt=""></button></li>
-                    <li><button><img src="assets/dailies.svg" alt=""></button></li>
-                    <li><button><img src="assets/esencia.svg" alt=""></button></li>
-                    <li><button><img src="assets/trabajo.svg" alt=""></button></li>
-                    <li><button><img src="assets/oceano.svg" alt=""></button></li>
-                    <li><button><img src="assets/stars.svg" alt=""></button></li>
-                </div>
+            <div class="Spin">
             </div>
         </div>
-    </div>
 
-    <div class="Noche">
-        <div class="CollapseCu">
-            <p class="d-inline-flex gap-1">
-                <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
-                    Noche
-                </a>
-            </p>
-            <div class="progress vertical sandia">
-                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
-                    aria-valuemax="100" style="width: 45%;">
+        <div class="Noche">
+            <div class="CollapseCu">
+                <p class="d-inline-flex gap-1">
+                    <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample3" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Noche
+                    </a>
+                </p>
+                <div class="progress vertical sandia">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
+                        aria-valuemax="100" style="width: 45%;">
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample3">
+                    <div class="btnS">
+                        <li><button><img src="assets/reborn.svg" alt=""></button></li>
+                        <li><button><img src="assets/sonrisa.svg" alt=""></button></li>
+                        <li><button><img src="assets/galaxia.svg" alt=""></button></li>
+                        <li><button><img src="assets/mundo.svg" alt=""></button></li>
+                        <li><button><img src="assets/viaje.svg" alt=""></button></li>
+                        <li><button><img src="assets/cambio.svg" alt=""></button></li>
+                    </div>
                 </div>
             </div>
-            <div class="collapse" id="collapseExample3">
-                <div class="btnS">
-                    <li><button><img src="assets/reborn.svg" alt=""></button></li>
-                    <li><button><img src="assets/sonrisa.svg" alt=""></button></li>
-                    <li><button><img src="assets/galaxia.svg" alt=""></button></li>
-                    <li><button><img src="assets/mundo.svg" alt=""></button></li>
-                    <li><button><img src="assets/viaje.svg" alt=""></button></li>
-                    <li><button><img src="assets/cambio.svg" alt=""></button></li>
-                </div>
+            <div class="Spin">
             </div>
         </div>
     </div>
 
     <div class="Boton">
         <a href="/Inicio" class="btnReg"><img src="assets/inicial.svg" alt=""></a>
-
     </div>
 
     <div class="Porcentaje">
@@ -106,9 +117,9 @@
                 aria-valuemax="100" style="width: 45%;">
             </div>
         </div>
-            <p>vas bien sigue asi</p>
+        <p>vas bien sigue asi</p>
     </div>
-    
+
     <div class="Notice2">
         <p>Kira kira puyo puyo no wonda este ji </p>
     </div>
