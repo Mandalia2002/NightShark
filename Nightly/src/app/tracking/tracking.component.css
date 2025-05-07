@@ -20,15 +20,20 @@
 
 .Notice {
     border-radius: 3%;
+    box-shadow: #282229 1px 1px 10px;
+
 }
 
 .Notice2 {
     border-radius: 3%;
+    box-shadow: #282229 1px 1px 10px;
+
 }
 
 .Amanecer {
     background: #4B3F5A;
     background: linear-gradient(180deg, rgba(75, 63, 90, 0.3) 100%, rgba(159, 134, 192, 0.3) 0%);
+    box-shadow: #282229 1px 1px 10px;
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
@@ -46,7 +51,7 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
-
+    box-shadow: #2b1e33 1px 1px 10px;
 }
 
 .Noche {
@@ -55,7 +60,7 @@
     padding: 2vw;
     border-radius: 5%;
     text-align: center;
-
+    box-shadow: #2b1e33 1px 1px 10px;
 }
 
 .Porcentaje {
@@ -67,6 +72,7 @@
     border-radius: 5%;
     text-align: center;
     color: beige;
+    box-shadow: #2b1e33 1px 1px 10px;
 }
 
 .btnPro {
@@ -115,8 +121,8 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 20px;
-        grid-row-gap: 25px;
-        text-align: center;
+        grid-row-gap: 10px;
+        margin: 6vw;
 
         li {
             list-style: none;
@@ -125,27 +131,32 @@
 
     .Notice {
         grid-area: 1 / 1 / 2 / 4;
+        padding-left: 5vw;
+        padding-top: 5vw;
     }
 
     .Amanecer {
         grid-area: 2 / 1 / 3 / 4;
         display: inline;
+        padding: 3vw;
     }
 
     .Dia {
         grid-area: 3 / 1 / 4 / 4;
         display: inline;
-
+        padding: 3vw;
     }
 
     .Noche {
         grid-area: 4 / 1 / 5 / 4;
         display: inline;
-
+        padding: 3vw;
     }
 
     .Boton {
         grid-area: 5 / 1 / 4 / 4;
+        display: inline;
+        text-align: center;
 
         img {
             width: 30vw;
@@ -195,7 +206,6 @@
     .tracks {
         grid-area: 2 / 1 / 5 / 4;
         grid-row-gap: 25px;
-        position: sticky;
     }
 
     .Boton1 {
@@ -248,6 +258,11 @@
         justify-items: center;
     }
 
+    .Amanecer .CollapseCu:hover {
+        box-shadow: #2b1e33 1px 1px 100px;
+        transition: 1s ease-in-out;
+    }
+
     .Dia {
         grid-area: 2 / 3 / 4 / 4;
         font-size: 1vw;
@@ -284,6 +299,15 @@
         height: 10vw;
         border-radius: 50%;
         background: radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),
-        conic-gradient(rgba(169, 65, 221, 0.5) 40%, transparent 40%);
+            conic-gradient(rgba(169, 65, 221, 0.5) 40%, transparent 40%);
+            
+    }
+    
+    .Boton1 img:hover {
+        border-radius: 100%;
+        box-shadow: #c599c9 1px 1px 100px;
+        transition: 1s ease-in;
+        transition: 1s ease-out;
+
     }
 }

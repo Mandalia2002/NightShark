@@ -16,6 +16,8 @@ import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class TrackingComponent {
+  value=10;
+
   private readonly _formBuilder = inject(FormBuilder);
 
   readonly amanecerS = this._formBuilder.group({

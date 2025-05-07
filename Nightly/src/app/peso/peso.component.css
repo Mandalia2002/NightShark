@@ -12,6 +12,14 @@
     }
 }
 
+.Boton img:hover {
+    border-radius: 100%;
+    box-shadow: #c599c9 1px 1px 100px;
+    transition: 1s ease-in;
+    transition: 1s ease-out;
+
+}
+
 .Inicio{
     text-align: center;
     a {
@@ -34,12 +42,14 @@
     background: linear-gradient(180deg, rgba(75, 63, 90, 0.3) 100%, rgba(159, 134, 192, 0.3) 0%);
     border-radius: 3%;
     text-align: center;
+    box-shadow: #282229 1px 1px 10px;
 }
 
 .Info{
     background: #4B3F5A;
     background: linear-gradient(180deg, rgba(75, 63, 90, 0.3) 100%, rgba(159, 134, 192, 0.3) 0%);
     border-radius: 3%;
+    box-shadow: #282229 1px 1px 10px;
 }
 
 .Progress{
@@ -56,10 +66,17 @@ button {
 button:hover{
     background-color: #4D3758;
     color: #9F86C0;
-    transition: 0.2ms ease-in-out;
+    box-shadow: #c599c9 1px 1px 10px;
+    transition: 0.5s ease-in;
 }
 button:checked{
     background-color: #4D3758;
+}
+
+.InOut{
+    border-radius: 10%;
+    background-color: #8c80c4;
+    border: none;
 }
 
 @media (max-width: 412px) {
@@ -130,11 +147,14 @@ button:checked{
     .Peso {
         grid-area: 2 / 1 / 4 / 4;
         padding: 2vw;
+        font-size: larger;
     }
 
     .Info {
         grid-area: 2 / 4 / 5 / 7;
         padding: 2vw;
+        font-size:larger;
+        text-align:justify;
     }
 
     .Progress {
