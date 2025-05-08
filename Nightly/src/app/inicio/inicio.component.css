@@ -51,6 +51,8 @@ info-back {
 .logoIn {
         width: 15vw;
         text-align: center;
+        box-shadow: #10092881 1px 1px 20px;
+        border-radius: 50%;
 }
 
 .btnss {
@@ -119,10 +121,10 @@ info-back {
         
         .btnIn {
                 width: 10vw;
+                border-radius: 100%;
         }
 
         .btnIn:hover{
-                border-radius: 100%;
                 box-shadow: #c599c9 1px 1px 100px;
                 transition: 1s ease-in;
                 transition: 1s ease-out;

@@ -1,41 +1,61 @@
-.parent{
+.parent {
     padding: 2vw;
 }
 
-.Boton{
-    a{
-        img{
+.Boton {
+    a {
+        img {
+            border-radius: 100%;
+
             width: 5vw;
         }
     }
 }
 
-.Inicio{
+.Boton img:hover {
+    border-radius: 100%;
+    box-shadow: #c599c9 1px 1px 100px;
+    transition: 1s ease-in;
+    transition: 1s ease-out;
+
+}
+
+.Inicio {
     text-align: center;
-    a{
-        img{
+
+    a {
+        img {
             width: 25vw;
         }
     }
 }
 
-.Envio{
+.Envio {
     text-align: center;
 }
 
-.InformeAnual{
+.InformeAnual {
     background: #4D3758;
-        background: linear-gradient(180deg, rgba(77, 55, 88, 0.5) 100%, rgba(88, 55, 82, 0.5) 0%);
+    background: linear-gradient(180deg, rgba(77, 55, 88, 0.5) 100%, rgba(88, 55, 82, 0.5) 0%);
+    box-shadow: #282229 1px 1px 10px;
+    padding: 2vw;
+    border-radius: 5%;
 }
 
-.InformeMensual{
+.InformeMensual {
     background: #4D3758;
-        background: linear-gradient(180deg, rgba(77, 55, 88, 0.5) 100%, rgba(88, 55, 82, 0.5) 0%);
+    background: linear-gradient(180deg, rgba(77, 55, 88, 0.5) 100%, rgba(88, 55, 82, 0.5) 0%);
+    box-shadow: #282229 1px 1px 10px;
+    padding: 2vw;
+    border-radius: 5%;
 }
 
-.InformeSemanal{
+.InformeSemanal {
     background: #4D3758;
-        background: linear-gradient(180deg, rgba(77, 55, 88, 0.5) 100%, rgba(88, 55, 82, 0.5) 0%);
+    background: linear-gradient(180deg, rgba(77, 55, 88, 0.5) 100%, rgba(88, 55, 82, 0.5) 0%);
+    box-shadow: #282229 1px 1px 10px;
+    padding: 2vw;
+    border-radius: 5%;
 }
 
 .vertical {
@@ -44,28 +64,76 @@
     height: 100%;
     /* -webkit-transform: rotate(-90deg); Chrome, Safari, Opera */
     /* transform: rotate(-90deg); */
-  }
+}
 
-@media (max-width: 412px){
+.tracks {
+    display: grid;
+    align-self: baseline;
+    color: #9F86C0;
+}
+
+.Grafica1 {}
+
+.Grafica2 {}
+
+.Grafica3 {}
+
+
+@media (max-width: 412px) {
     .parent {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 20px;
-        }
-        
-        .InformeSemanal { grid-area: 1 / 1 / 2 / 4; }
-        .InformeMensual { grid-area: 2 / 1 / 3 / 4; }
-        .InformeAnual { grid-area: 3 / 1 / 4 / 4; }
-        .Envio { grid-area: 4 / 1 / 5 / 4; }
-        .Inicio { grid-area: 5 / 1 / 6 / 4; }
-        .Grafica1 { grid-area: 1 / 3 / 2 / 4; }
-        .Grafica2 { grid-area: 2 / 3 / 3 / 4; }
-        .Grafica3 { grid-area: 3 / 3 / 4 / 4; }
-        .Boton{
-            display: none;
-        }
+    }
+
+    .InformeSemanal {
+        grid-area: 1 / 1 / 2 / 4;
+    }
+
+    .InformeMensual {
+        grid-area: 2 / 1 / 3 / 4;
+    }
+
+    .InformeAnual {
+        grid-area: 3 / 1 / 4 / 4;
+    }
+
+    .Envio {
+        grid-area: 4 / 1 / 5 / 4;
+    }
+
+    .Inicio {
+        grid-area: 5 / 1 / 6 / 4;
+    }
+
+    .Grafica1 {
+        grid-area: 1 / 3 / 2 / 4;
+        padding: 2vw;
+
+    }
+
+    .Grafica2 {
+        grid-area: 2 / 3 / 3 / 4;
+        padding: 2vw;
+
+    }
+
+    .Grafica3 {
+        grid-area: 3 / 3 / 4 / 4;
+        padding: 2vw;
+
+    }
+
+    .Boton {
+        display: none;
+    }
+
+    .tracks {
+        grid-area: 1 / 1 / 4 / 4;
+        grid-row-gap: 25px;
+    }
 }
 
 @media(min-width: 413px) {
@@ -75,16 +143,47 @@
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 20px;
-        }
-        
-        .Boton { grid-area: 1 / 1 / 3 / 2; }
-        .InformeSemanal { grid-area: 1 / 2 / 3 / 4; }
-        .InformeMensual { grid-area: 1 / 4 / 3 / 6; }
-        .InformeAnual { grid-area: 1 / 6 / 3 / 8; }
-        .Grafica1 { grid-area: 1 / 3 / 3 / 4; }
-        .Grafica2 { grid-area: 1 / 5 / 3 / 6; }
-        .Grafica3 { grid-area: 1 / 7 / 3 / 8; }
-        .Inicio{
-            display: none;
-        }
+    }
+
+    .Boton {
+        grid-area: 1 / 1 / 3 / 2;
+    }
+
+    .InformeSemanal {
+        grid-area: 1 / 2 / 3 / 4;
+    }
+
+    .InformeMensual {
+        grid-area: 1 / 4 / 3 / 6;
+    }
+
+    .InformeAnual {
+        grid-area: 1 / 6 / 3 / 8;
+    }
+
+    .Grafica1 {
+        grid-area: 1 / 3 / 3 / 4;
+        padding: 1vw;
+    }
+
+    .Grafica2 {
+        grid-area: 1 / 5 / 3 / 6;
+        padding: 1vw;
+
+    }
+
+    .Grafica3 {
+        grid-area: 1 / 7 / 3 / 8;
+        padding: 1vw;
+
+    }
+
+    .Inicio {
+        display: none;
+    }
+
+    .tracks {
+        grid-area: 1 / 2 / 2 / 8;
+        grid-column-gap: 20px;
+    }
 }
