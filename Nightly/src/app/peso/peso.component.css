@@ -88,6 +88,9 @@ button:checked{
         grid-column-gap: 20px;
         grid-row-gap: 20px;
         padding: 4vw;
+
+        overflow: hidden;
+        position: fixed;
     }
 
     button {

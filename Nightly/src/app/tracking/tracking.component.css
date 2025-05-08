@@ -123,6 +123,8 @@
         grid-column-gap: 20px;
         grid-row-gap: 10px;
         margin: 6vw;
+        overflow: hidden;
+        position:fixed;
 
         li {
             list-style: none;

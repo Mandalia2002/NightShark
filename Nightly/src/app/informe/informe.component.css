@@ -6,7 +6,6 @@
     a {
         img {
             border-radius: 100%;
-
             width: 5vw;
         }
     }
@@ -30,8 +29,21 @@
     }
 }
 
-.Envio {
+.Envio button {
     text-align: center;
+    border-radius: 10%;
+    width: 10vw;
+    height: 3vw;
+    background-color: #5e548e93;
+    border: none;
+
+}
+
+.Envio button:hover {
+    background-color: #4D3758;
+    color: #9F86C0;
+    box-shadow: #c599c9 1px 1px 10px;
+    transition: 0.5s ease-in;
 }
 
 .InformeAnual {
@@ -60,7 +72,7 @@
 
 .vertical {
     display: inline-block;
-    width: 20%;
+    width: 15%;
     height: 100%;
     /* -webkit-transform: rotate(-90deg); Chrome, Safari, Opera */
     /* transform: rotate(-90deg); */
@@ -86,44 +98,68 @@
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 20px;
+        padding: 4vw;
+        overflow: hidden;
+        /* position: fixed; */
+        align-self: center;
+    }
+
+    .san {
+        width: 10vw;
     }
 
     .InformeSemanal {
         grid-area: 1 / 1 / 2 / 4;
+        display: grid;
+        grid-column-gap: 30px;
     }
 
     .InformeMensual {
         grid-area: 2 / 1 / 3 / 4;
+        display: grid;
+        grid-column-gap: 30px;
     }
 
     .InformeAnual {
         grid-area: 3 / 1 / 4 / 4;
+        display: grid;
+        grid-column-gap: 30px;
     }
 
     .Envio {
         grid-area: 4 / 1 / 5 / 4;
+        text-align: center;
+    }
+
+    .Envio button {
+        border-radius: 10%;
+        width: 20vw;
+        height: 10vw;
+        background-color: #5e548e93;
+        border: none;
     }
 
     .Inicio {
-        grid-area: 5 / 1 / 6 / 4;
+        grid-area: 5 / 1 / 5 / 4;
     }
 
     .Grafica1 {
         grid-area: 1 / 3 / 2 / 4;
-        padding: 2vw;
-
+        margin-left: 8vw;
+        padding-right: 5vw;
+        text-align: right;
     }
 
     .Grafica2 {
         grid-area: 2 / 3 / 3 / 4;
-        padding: 2vw;
-
+        padding-right: 5vw;
+        text-align: right;
     }
 
     .Grafica3 {
         grid-area: 3 / 3 / 4 / 4;
-        padding: 2vw;
-
+        padding-right: 5vw;
+        text-align: right;
     }
 
     .Boton {
@@ -133,7 +169,32 @@
     .tracks {
         grid-area: 1 / 1 / 4 / 4;
         grid-row-gap: 25px;
+
+        li {
+            list-style: none;
+        }
+
+        hr {
+            display: none;
+        }
     }
+
+    .Class1 {
+        grid-area: 1 / 1 / 2 / 3;
+        padding: 2vw;
+    }
+
+    .Class2 {
+        grid-area: 2 / 1 / 3 / 3;
+        padding: 2vw;
+
+    }
+
+    .Class3 {
+        grid-area: 3 / 1 / 4 / 3;
+        padding: 2vw;
+    }
+
 }
 
 @media(min-width: 413px) {
@@ -185,5 +246,14 @@
     .tracks {
         grid-area: 1 / 2 / 2 / 8;
         grid-column-gap: 20px;
+        font-size: larger;
+
+        li {
+            list-style: none;
+        }
+
+        hr {
+            border: #4D3758 1px 1px;
+        }
     }
 }
