@@ -222,6 +222,8 @@
         grid-template-rows: repeat(4, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 15px;
+        overflow: hidden;
+        position: fixed;
     }
 
     .sandia {
@@ -234,6 +236,13 @@
         border-radius: 100%;
             width: 5vw;
         }
+    }
+
+    .Boton1 img:hover {
+        box-shadow: #c599c9 1px 1px 100px;
+        transition: 1s ease-in;
+        transition: 1s ease-out;
+        border-radius: 100%;
     }
 
     .Notice {
@@ -303,12 +312,5 @@
         background: radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),
             conic-gradient(rgba(169, 65, 221, 0.5) 40%, transparent 40%);
             
-    }
-    
-    .Boton1 img:hover {
-        box-shadow: #c599c9 1px 1px 100px;
-        transition: 1s ease-in;
-        transition: 1s ease-out;
-
     }
 }
