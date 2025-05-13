@@ -213,6 +213,10 @@
     .Boton1 {
         display: none;
     }
+
+    .Spin {
+        display: none;
+    }
 }
 
 @media (min-width: 413px) {
@@ -304,13 +308,20 @@
         display: none;
     }
 
+    .btnPro{
+
+    }
+
     .Spin {
-        margin: 1vw;
-        width: 10vw;
-        height: 10vw;
-        border-radius: 50%;
-        background: radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),
-            conic-gradient(rgba(169, 65, 221, 0.5) 40%, transparent 40%);
-            
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .Spin.graf{
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
     }
 }

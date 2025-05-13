@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -16,7 +16,14 @@ import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class TrackingComponent {
-  value=10;
+  graf = false;
+  ocultar() {
+    this.graf = true;
+  }
+
+  mostrar() {
+    this.graf = false;
+  }
 
   private readonly _formBuilder = inject(FormBuilder);
 

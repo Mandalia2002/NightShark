@@ -33,7 +33,7 @@
                         aria-valuemax="100" style="width: 45%;">
                     </div>
                 </div>
-                <div class="collapse" id="collapseExample">
+                <div class="collapse" id="collapseExample" (focus)="ocultar()" (blur)="mostrar()">
                     <section [formGroup]="amanecerS">
                         <div class="btnS">
                             <li><button formControlName="Hora"><img src="assets/moonshot.svg" alt=""></button></li>
@@ -46,7 +46,7 @@
                     </section>
                 </div>
             </div>
-            <div class="Spin">
+            <div [class.oculta]="graf" class="Spin"style="margin: 1vw; width: 10vw;height: 10vw;border-radius: 50%;background: radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%), conic-gradient(rgba(169, 65, 221, 0.5) 40%, transparent 40%);">
             </div>
         </div>
 
