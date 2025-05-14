@@ -15,9 +15,10 @@ import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class TrackingComponent implements AfterViewInit{
-  progLuz = 40;
+  progLuz = 10;
   progDia = 30;
   progNoc = 80;
+  
   graf1 = false;
   graf2 = false;
   graf3 = false;

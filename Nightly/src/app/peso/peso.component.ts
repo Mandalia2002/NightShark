@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './peso.component.css'
 })
 export class PesoComponent {
-peso=20;
+peso=50;
 }
