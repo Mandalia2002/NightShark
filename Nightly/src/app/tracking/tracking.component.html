@@ -21,7 +21,7 @@
 
     <div class="tracks">
         <div class="Amanecer">
-            <div class="CollapseCu">
+            <div class="CollapseCu" id="dropdownCollapse">
                 <p class="d-inline-flex gap-1">
                     <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample" role="button"
                         aria-expanded="false" aria-controls="collapseExample">
@@ -33,27 +33,28 @@
                         aria-valuemax="100" style="width: 45%;">
                     </div>
                 </div>
-                <div class="collapse" id="collapseExample" (focus)="ocultar()" (blur)="mostrar()">
-                    <section [formGroup]="amanecerS">
+                <div class="collapse" id="collapseExample" #dropdownCollapseRef1>
                         <div class="btnS">
-                            <li><button formControlName="Hora"><img src="assets/moonshot.svg" alt=""></button></li>
-                            <li><button formControlName="Cama"><img src="assets/sueño.svg" alt=""></button></li>
-                            <li><button formControlName="Escritorio"><img src="assets/futuro.svg" alt=""></button></li>
-                            <li><button formControlName="Dientes"><img src="assets/sonrisa.svg" alt=""></button></li>
-                            <li><button formControlName="Cara"><img src="assets/mirada.svg" alt=""></button></li>
-                            <li><button formControlName="Cuerpo"><img src="assets/ser.svg" alt=""></button></li>
+                            <li><button ><img src="assets/moonshot.svg" alt=""></button></li>
+                            <li><button ><img src="assets/sueño.svg" alt=""></button></li>
+                            <li><button ><img src="assets/futuro.svg" alt=""></button></li>
+                            <li><button ><img src="assets/sonrisa.svg" alt=""></button></li>
+                            <li><button ><img src="assets/mirada.svg" alt=""></button></li>
+                            <li><button ><img src="assets/ser.svg" alt=""></button></li>
                         </div>
-                    </section>
                 </div>
             </div>
-            <div [class.oculta]="graf" class="Spin"style="margin: 1vw; width: 10vw;height: 10vw;border-radius: 50%;background: radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%), conic-gradient(rgba(169, 65, 221, 0.5) 40%, transparent 40%);">
+            <div class="SpinLuz" [ngStyle]="{
+                background: 
+                'radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),' + 
+                'conic-gradient(rgba(169, 65, 221, 0.5)' + progLuz + '%, transparent ' + progLuz + '%)'}" [class.oculta]="graf1">
             </div>
         </div>
 
         <div class="Dia">
             <div class="CollapseCu">
                 <p class="d-inline-flex gap-1">
-                    <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample2" role="button"
+                    <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample" role="button"
                         aria-expanded="false" aria-controls="collapseExample">
                         Dia
                     </a>
@@ -63,7 +64,7 @@
                         aria-valuemax="100" style="width: 45%;">
                     </div>
                 </div>
-                <div class="collapse" id="collapseExample2">
+                <div class="collapse" id="collapseExample" #dropdownCollapseRef2>
                     <div class="btnS">
                         <li><button><img src="assets/ejercicio.svg" alt=""></button></li>
                         <li><button><img src="assets/dailies.svg" alt=""></button></li>
@@ -74,14 +75,17 @@
                     </div>
                 </div>
             </div>
-            <div class="Spin">
+            <div class="SpinDia" [ngStyle]="{
+                background: 
+                'radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),' + 
+                'conic-gradient(rgba(169, 65, 221, 0.5)' + progDia + '%, transparent ' + progDia + '%)'}" [class.oculta]="graf2">
             </div>
         </div>
 
         <div class="Noche">
             <div class="CollapseCu">
                 <p class="d-inline-flex gap-1">
-                    <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample3" role="button"
+                    <a class="btnPro" data-bs-toggle="collapse" href="#collapseExample" role="button"
                         aria-expanded="false" aria-controls="collapseExample">
                         Noche
                     </a>
@@ -91,7 +95,7 @@
                         aria-valuemax="100" style="width: 45%;">
                     </div>
                 </div>
-                <div class="collapse" id="collapseExample3">
+                <div class="collapse" id="collapseExample" #dropdownCollapseRef3>
                     <div class="btnS">
                         <li><button><img src="assets/reborn.svg" alt=""></button></li>
                         <li><button><img src="assets/sonrisa.svg" alt=""></button></li>
@@ -102,7 +106,10 @@
                     </div>
                 </div>
             </div>
-            <div class="Spin">
+            <div class="SpinNoc" [ngStyle]="{
+                background: 
+                'radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),' + 
+                'conic-gradient(rgba(169, 65, 221, 0.5)' + progNoc + '%, transparent ' + progNoc + '%)'}" [class.oculta]="graf3">
             </div>
         </div>
     </div>

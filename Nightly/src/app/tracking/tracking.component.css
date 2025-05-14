@@ -124,7 +124,7 @@
         grid-row-gap: 10px;
         margin: 6vw;
         overflow: hidden;
-        position:fixed;
+        position: fixed;
 
         li {
             list-style: none;
@@ -236,8 +236,9 @@
 
     .Boton1 {
         padding: 2vw;
+
         img {
-        border-radius: 100%;
+            border-radius: 100%;
             width: 5vw;
         }
     }
@@ -308,20 +309,59 @@
         display: none;
     }
 
-    .btnPro{
+    .btnPro {}
 
-    }
-
-    .Spin {
+    .SpinLuz {
         transition: opacity 0.5s ease, transform 0.5s ease;
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%; 
+        position: relative;
     }
 
-    .Spin.graf{
+    .SpinLuz.oculta {
         opacity: 0;
         transform: translateY(20px);
         pointer-events: none;
+        display: none;
+    }
+
+    .SpinDia {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%; 
+        position: relative;
+    }
+
+    .SpinDia.oculta {
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        display: none;
+    }
+
+    .SpinNoc {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%; 
+        position: relative;
+    }
+
+    .SpinNoc.oculta {
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        display: none;
     }
 }
