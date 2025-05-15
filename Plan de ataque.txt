@@ -3,12 +3,12 @@ Lenguaje principal: HTML, CSS y Javascript
 Frameworks: Electron y Cordova
 
 Front:
-    Figma, 90%
-    Vista telefono: 0%
-    Vista Web: 0%
+    Figma, 100%
+    Vista telefono: 100%
+    Vista Web: 100%
 
 Backend:
-    Nada :3
+    Establecimiento de variables del Angular
 
 
 La idea del funcionamiento para evitar usar un servidor o una conexion 
