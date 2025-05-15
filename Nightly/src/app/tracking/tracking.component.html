@@ -28,26 +28,29 @@
                         Amanecer
                     </a>
                 </p>
-                <div class="progress vertical sandia">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 45%;">
+                <div class="prog sandia" [class.oculta]="grafM1">
+                    <div class="barra">
+                        <div class="progreso" [ngStyle]="{width: progLuz + '%'}"></div>
                     </div>
                 </div>
                 <div class="collapse" id="collapseExample1" #dropdownCollapseRef1>
-                        <div class="btnS">
-                            <li><button ><img src="assets/moonshot.svg" alt=""></button></li>
-                            <li><button ><img src="assets/sueño.svg" alt=""></button></li>
-                            <li><button ><img src="assets/futuro.svg" alt=""></button></li>
-                            <li><button ><img src="assets/sonrisa.svg" alt=""></button></li>
-                            <li><button ><img src="assets/mirada.svg" alt=""></button></li>
-                            <li><button ><img src="assets/ser.svg" alt=""></button></li>
-                        </div>
+                    <div class="btnS">
+                        <form (ngSubmit)="Amanecer(valor)">
+                        <li><button type="submit" (click)="Amanecer('Hora')"><img src="assets/moonshot.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Amanecer('Cama')"><img src="assets/sueño.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Amanecer('Escritorio')"><img src="assets/futuro.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Amanecer('Dientes')"><img src="assets/sonrisa.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Amanecer('Cara')"><img src="assets/mirada.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Amanecer('Cuerpo')"><img src="assets/ser.svg" alt=""></button></li>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="SpinLuz" [ngStyle]="{
                 background: 
                 'radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),' + 
-                'conic-gradient(rgba(169, 65, 221, 0.5)' + progLuz + '%, transparent ' + progLuz + '%)'}" [class.oculta]="graf1">
+                'conic-gradient(rgba(169, 65, 221, 0.5)' + progLuz + '%, transparent ' + progLuz + '%)'}"
+                [class.oculta]="graf1">
             </div>
         </div>
 
@@ -59,26 +62,29 @@
                         Dia
                     </a>
                 </p>
-                <div class="progress vertical sandia">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 45%;">
+                <div class="prog sandia" [class.oculta]="grafM2">
+                    <div class="barra">
+                        <div class="progreso" [ngStyle]="{width: progDia + '%'}"></div>
                     </div>
                 </div>
                 <div class="collapse" id="collapseExample2" #dropdownCollapseRef2>
                     <div class="btnS">
-                        <li><button><img src="assets/ejercicio.svg" alt=""></button></li>
-                        <li><button><img src="assets/dailies.svg" alt=""></button></li>
-                        <li><button><img src="assets/esencia.svg" alt=""></button></li>
-                        <li><button><img src="assets/trabajo.svg" alt=""></button></li>
-                        <li><button><img src="assets/oceano.svg" alt=""></button></li>
-                        <li><button><img src="assets/stars.svg" alt=""></button></li>
+                        <form (ngSubmit)="Dia(valor)">
+                        <li><button type="submit" (click)="Dia('Ejercicio')"><img src="assets/ejercicio.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Dia('Daily')"><img src="assets/dailies.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Dia('Comida')"><img src="assets/esencia.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Dia('Trabajo')"><img src="assets/trabajo.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Dia('Agua')"><img src="assets/oceano.svg" alt=""></button></li>
+                        <li><button type="submit" value="Estudio"><img src="assets/stars.svg" alt=""></button></li>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="SpinDia" [ngStyle]="{
                 background: 
                 'radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),' + 
-                'conic-gradient(rgba(169, 65, 221, 0.5)' + progDia + '%, transparent ' + progDia + '%)'}" [class.oculta]="graf2">
+                'conic-gradient(rgba(169, 65, 221, 0.5)' + progDia + '%, transparent ' + progDia + '%)'}"
+                [class.oculta]="graf2">
             </div>
         </div>
 
@@ -90,26 +96,29 @@
                         Noche
                     </a>
                 </p>
-                <div class="progress vertical sandia">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50+" aria-valuemin="0"
-                        aria-valuemax="100" style="width: 45%;">
+                <div class="prog sandia" [class.oculta]="grafM3">
+                    <div class="barra">
+                        <div class="progreso" [ngStyle]="{width: progNoc + '%'}"></div>
                     </div>
                 </div>
                 <div class="collapse" id="collapseExample3" #dropdownCollapseRef3>
                     <div class="btnS">
-                        <li><button><img src="assets/reborn.svg" alt=""></button></li>
-                        <li><button><img src="assets/sonrisa.svg" alt=""></button></li>
-                        <li><button><img src="assets/galaxia.svg" alt=""></button></li>
-                        <li><button><img src="assets/mundo.svg" alt=""></button></li>
-                        <li><button><img src="assets/viaje.svg" alt=""></button></li>
-                        <li><button><img src="assets/cambio.svg" alt=""></button></li>
+                        <form (ngSubmit)="Noche(valor)">
+                        <li><button type="submit" (click)="Noche('Skin')"><img src="assets/reborn.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Noche('Dientes')"><img src="assets/sonrisa.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Noche('Cabello')"><img src="assets/galaxia.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Noche('Leer')"><img src="assets/mundo.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Noche('Mochila')"><img src="assets/viaje.svg" alt=""></button></li>
+                        <li><button type="submit" (click)="Noche('Cambio')"><img src="assets/cambio.svg" alt=""></button></li>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="SpinNoc" [ngStyle]="{
                 background: 
                 'radial-gradient(rgba(54, 25, 68, 0.5) 60%, transparent 40%),' + 
-                'conic-gradient(rgba(169, 65, 221, 0.5)' + progNoc + '%, transparent ' + progNoc + '%)'}" [class.oculta]="graf3">
+                'conic-gradient(rgba(169, 65, 221, 0.5)' + progNoc + '%, transparent ' + progNoc + '%)'}"
+                [class.oculta]="graf3">
             </div>
         </div>
     </div>
@@ -120,8 +129,8 @@
 
     <div class="Porcentaje">
         <div class="barra">
-                    <div class="progreso" [ngStyle]="{width: proa + '%'}"></div>
-                </div>
+            <div class="progreso" [ngStyle]="{width: proa + '%'}"></div>
+        </div>
         <p>vas bien sigue asi</p>
     </div>
 

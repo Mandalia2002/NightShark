@@ -190,8 +190,8 @@
 
         button {
             border-radius: 100%;
-            width: 12vw;
-            height: 12vw;
+            width: 10vw;
+            height: 10vw;
             background-color: #5e548e93;
             border: none;
 
@@ -223,6 +223,36 @@
     }
 
     .SpinNoc {
+        display: none;
+    }
+
+    .barra {
+        width: 70vw;
+        height: 3vw;
+        border: 2px solid #240a2736;
+        background-color: #3f324e;
+        border-radius: 50px;
+    }
+
+    .progreso {
+        height: 100%;
+        background-color: #8c80c4;
+        transition: width 0.5s ease;
+        border-radius: 50px;
+    }
+
+    .prog{
+        justify-items: center;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .prog.oculta{
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
         display: none;
     }
 }
