@@ -305,6 +305,7 @@
 
     .Porcentaje {
         grid-area: 4 / 2 / 4 / 5;
+        justify-items: center;
     }
 
     .tracks {
@@ -371,5 +372,20 @@
         transform: translateY(20px);
         pointer-events: none;
         display: none;
+    }
+
+    .barra {
+        width: 65vw;
+        height: 2vw;
+        border: 2px solid #240a2736;
+        background-color: #3f324e;
+        border-radius: 50px;
+    }
+
+    .progreso {
+        height: 100%;
+        background-color: #8c80c4;
+        transition: width 0.5s ease;
+        border-radius: 50px;
     }
 }

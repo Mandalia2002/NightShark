@@ -19,6 +19,8 @@ export class TrackingComponent implements AfterViewInit{
   progDia = 30;
   progNoc = 80;
   
+  proa = 40;
+
   graf1 = false;
   graf2 = false;
   graf3 = false;
