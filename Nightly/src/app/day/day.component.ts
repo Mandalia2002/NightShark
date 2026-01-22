@@ -5,17 +5,17 @@ import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-tracking',
+  selector: 'app-day',
   imports: [
     MatCheckboxModule,
     NgbProgressbarModule,
     CommonModule,
   ],
-  templateUrl: './tracking.component.html',
-  styleUrl: './tracking.component.css',
+  templateUrl: './day.component.html',
+  styleUrl: './day.component.css',
 })
 
-export class TrackingComponent implements AfterViewInit{
+export class DayComponent implements AfterViewInit{
   progLuz = 10;
   progDia = 30;
   progNoc = 80;

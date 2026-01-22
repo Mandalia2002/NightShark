@@ -1,38 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
-/* html, body{
-    min-height: 100%;
-    min-width: 100%;
-    background: #4D3758;
-    background: linear-gradient(180deg, rgba(77, 55, 88, 1) 0%, rgba(16, 9, 40, 1) 100%);
-    font-family: monospace;
-} */
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
-html,
-body {
-    background: linear-gradient(90deg, #100928, #5f4e75, #100928);
-    background-size: 120%;
-    animation: gradient-animation 8s ease infinite;
-}
-
-@keyframes gradient-animation {
-    0% {
-        background-color: linear-gradient(317deg, #100928, #5f4e75, #100928);
-        background-position: 0% 20%;
-    }
-
-    50% {
-        background-color: linear-gradient(317deg, #24125c, #282131, #25155a);
-        background-position: 100% 50%;
-    }
-
+@keyframes move {
     100% {
-        background-color: linear-gradient(317deg, #100928, #7a33d8, #100928);
-        background-position: 0% 20%;
+        transform: translate3d(0, 0, 1px) rotate(360deg);
     }
 }
 
+app-root{
+    backdrop-filter: blur(50%);
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #653e80;
+    background: linear-gradient(180deg, rgb(68, 42, 87) 0%, rgba(23, 18, 40, 1) 50%);
+    overflow: hidden;
+}
+
+.background span {
+    z-index: -2;
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 20vmin;
+    backface-visibility: hidden;
+    position: absolute;
+    animation: move;
+    animation-duration: 5;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 
 
+.background span:nth-child(0) {
+    color: #100928;
+    top: 87%;
+    left: 79%;
+    animation-duration: 352s;
+    animation-delay: -198s;
+    transform-origin: 23vw 17vh;
+    box-shadow: -40vmin 0 5.803353541015006vmin currentColor;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.background span:nth-child(1) {
+    color: #30317f88;
+    top: 21%;
+    left: 51%;
+    animation-duration: 19s;
+    animation-delay: -129s;
+    transform-origin: -24vw -4vh;
+    box-shadow: -40vmin 0 5.581730028588579vmin currentColor;
+}
+
+.background span:nth-child(2) {
+    color: #4D3758;
+    top: 88%;
+    left: 56%;
+    animation-duration: 422s;
+    animation-delay: -17s;
+    transform-origin: 12vw 15vh;
+    box-shadow: 40vmin 0 5.682439488783432vmin currentColor;
+}
+
+.background span:nth-child(3) {
+    color: #30317f88;
+    top: 61%;
+    left: 51%;
+    animation-duration: 221s;
+    animation-delay: -319s;
+    transform-origin: -12vw 12vh;
+    box-shadow: -40vmin 0 5.305034718956877vmin currentColor;
+}
+
+.background span:nth-child(4) {
+    color: #30317f88;
+    top: 18%;
+    left: 43%;
+    animation-duration: 15s;
+    animation-delay: -371s;
+    transform-origin: -19vw -8vh;
+    box-shadow: -40vmin 0 5.017809369493915vmin currentColor;
+}
+
+.background span:nth-child(5) {
+    color: #4D3758;
+    top: 84%;
+    left: 76%;
+    animation-duration: 314s;
+    animation-delay: -257s;
+    transform-origin: 3vw 6vh;
+    box-shadow: 40vmin 0 5.967477578378712vmin currentColor;
+}
+
+.background span:nth-child(6) {
+    color: #4D3758;
+    top: 41%;
+    left: 18%;
+    animation-duration: 210s;
+    animation-delay: -168s;
+    transform-origin: -21vw 12vh;
+    box-shadow: 40vmin 0 5.462160798594187vmin currentColor;
+}
+
+.background span:nth-child(7) {
+    color: #100928;
+    top: 98%;
+    left: 36%;
+    animation-duration: 268s;
+    animation-delay: -386s;
+    transform-origin: 1vw -2vh;
+    box-shadow: -40vmin 0 5.760452901782141vmin currentColor;
+}
+
+.background span:nth-child(8) {
+    color: #4D3758;
+    top: 65%;
+    left: 5%;
+    animation-duration: 22s;
+    animation-delay: -135s;
+    transform-origin: -24vw -22vh;
+    box-shadow: 40vmin 0 5.101284481650838vmin currentColor;
+}
+
+.background span:nth-child(9) {
+    color: #4D3758;
+    top: 1%;
+    left: 85%;
+    animation-duration: 410s;
+    animation-delay: -269s;
+    transform-origin: -21vw 25vh;
+    box-shadow: 40vmin 0 5.069660860769989vmin currentColor;
+}
