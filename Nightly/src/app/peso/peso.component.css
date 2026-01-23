@@ -1,6 +1,8 @@
-.parent {
-    padding: 2vw;
-    color: #9F86C0;
+.parent>div {
+    border-radius: 5px;
+    color: white;
+    background: #9F86C0;
+    background: linear-gradient(180deg, rgba(159, 134, 192, 0.18) 0%, rgba(75, 63, 90, 0.18) 66%);
 }
 
 .vertical {
@@ -12,18 +14,10 @@
 }
 
 .Peso {
-    background: #4B3F5A;
-    background: linear-gradient(180deg, rgba(75, 63, 90, 0.3) 100%, rgba(159, 134, 192, 0.3) 0%);
-    border-radius: 3%;
     text-align: center;
-    box-shadow: #282229 1px 1px 10px;
 }
 
 .Info {
-    background: #4B3F5A;
-    background: linear-gradient(180deg, rgba(75, 63, 90, 0.3) 100%, rgba(159, 134, 192, 0.3) 0%);
-    border-radius: 3%;
-    box-shadow: #282229 1px 1px 10px;
 }
 
 .Progress {
@@ -62,7 +56,7 @@ button:checked {
         grid-template-rows: repeat(4, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 20px;
-        padding: 5vw;
+        /* padding: 5vw; */
         overflow: hidden;
         position: fixed;
     }
@@ -86,8 +80,9 @@ button:checked {
 
     .Peso {
         grid-area: 1 / 1 / 4 / 4;
-        padding: 5vw;
-        p{
+
+        /* padding: 5vw; */
+        p {
             font-size: large;
         }
     }
@@ -100,7 +95,7 @@ button:checked {
     .barra {
         width: 7vw;
         height: 110vw;
-        border: 2px solid #240a2736 ;
+        border: 2px solid #240a2736;
         background-color: #3f324e;
         position: relative;
         display: flex;
@@ -118,11 +113,13 @@ button:checked {
 
     .Info {
         grid-area: 1 / 1 / 3 / 3;
-        padding: 5vw;
-        p{
+
+        /* padding: 5vw; */
+        p {
             font-size: larger;
         }
-        hr{
+
+        hr {
             border-width: 10px;
             border-color: #28222900;
         }
@@ -146,18 +143,15 @@ button:checked {
         grid-row-gap: 20px;
     }
 
-    .Boton {
-        grid-area: 1 / 1 / 2 / 7;
-    }
 
     .Peso {
-        grid-area: 2 / 1 / 4 / 4;
+        grid-area: 1 / 1 / 3 / 4;
         padding: 2vw;
         font-size: larger;
     }
 
     .Info {
-        grid-area: 2 / 4 / 5 / 7;
+        grid-area: 1 / 4 / 5 / 7;
         padding: 2vw;
         font-size: larger;
         text-align: justify;
@@ -174,7 +168,7 @@ button:checked {
     .barra {
         width: 2vw;
         height: 25vw;
-        border: 2px solid #240a2736 ;
+        border: 2px solid #240a2736;
         background-color: #3f324e;
         position: relative;
         display: flex;
@@ -195,7 +189,4 @@ button:checked {
         text-align: center;
     }
 
-    .Inicio {
-        display: none;
-    }
 }

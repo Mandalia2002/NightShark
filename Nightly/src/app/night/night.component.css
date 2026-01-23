@@ -3,9 +3,25 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(7, 1fr);
     grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-row-gap: 1vw;
 }
 
+.parent>div {
+    color: white;
+    background: #9F86C0;
+    background: linear-gradient(180deg, rgba(159, 134, 192, 0.18) 0%, rgba(75, 63, 90, 0.18) 66%);
+    padding: 1vw;
+    border-radius: 5px;
+    display: grid;
+
+    .check {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .text {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+}
 .div1 {
     grid-area: 1 / 1 / 2 / 6;
 }
@@ -32,4 +48,30 @@
 
 .div7 {
     grid-area: 7 / 1 / 8 / 6;
+}
+
+
+@media (max-width: 504px) {}
+
+@media (min-width: 505px) {
+    .parent {
+        /* padding: 5vw; */
+    }
+
+    .parent>div {
+        grid-column-gap: 1vw;
+
+        .check {
+            grid-area: 1 / 1 / 2 / 2;
+
+            img {
+                width: auto;
+                height: 2.5vw;
+            }
+        }
+
+        .text {
+            grid-area: 1 / 2 / 2 / 3;
+        }
+    }
 }

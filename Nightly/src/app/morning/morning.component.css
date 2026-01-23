@@ -51,15 +51,16 @@
 
 @media (min-width: 505px) {
     .parent {
-        padding: 5vw;
+        /* padding: 5vw; */
     }
 
     .parent>div {
-    grid-column-gap: 1vw;
+        grid-column-gap: 1vw;
 
         .check {
             grid-area: 1 / 1 / 2 / 2;
-            img{
+
+            img {
                 width: auto;
                 height: 2.5vw;
             }
