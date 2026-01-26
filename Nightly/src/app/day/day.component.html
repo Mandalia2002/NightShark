@@ -1,32 +1,52 @@
-<div class="parent">
-    <div class="div1">
-                <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Ejercicio
-        </div> </div>
-    <div class="div2">
-                <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Diarias
-        </div> </div>
-    <div class="div3">
-                <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Comida (minimo 2)
-        </div> </div>
-    <div class="div4">
-                <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Trabajo 
-        </div> </div>
-    <div class="div5">
-                <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Tomas 2 litros de agua
-        </div> </div>
-    <div class="div6">
-                <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Estudio (lenguaje,programacion,etc.)
-        </div> </div>
-</div>
+<section [formGroup]="day">
+    <div class="parent">
+        <div class="div1">
+            <div class="check">
+                <mat-checkbox formControlName="exercise"></mat-checkbox>
+            </div>
+            <div class="text">
+                Ejercicio
+            </div>
+        </div>
+        <div class="div2">
+            <div class="check">
+                <mat-checkbox formControlName="dailies"></mat-checkbox>
+            </div>
+            <div class="text">
+                Diarias
+            </div>
+        </div>
+        <div class="div3">
+            <div class="check">
+                <mat-checkbox formControlName="food"></mat-checkbox>
+            </div>
+            <div class="text">
+                Comida (minimo 2)
+            </div>
+        </div>
+        <div class="div4">
+            <div class="check">
+                <mat-checkbox formControlName="work"></mat-checkbox>
+            </div>
+            <div class="text">
+                Trabajo
+            </div>
+        </div>
+        <div class="div5">
+            <div class="check">
+                <mat-checkbox formControlName="water"></mat-checkbox>
+            </div>
+            <div class="text">
+                Tomas 2 litros de agua
+            </div>
+        </div>
+        <div class="div6">
+            <div class="check">
+                <mat-checkbox formControlName="study"></mat-checkbox>
+            </div>
+            <div class="text">
+                Estudio (lenguaje,programacion,etc.)
+            </div>
+        </div>
+    </div>
+</section>

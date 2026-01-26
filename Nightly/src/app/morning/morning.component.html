@@ -1,42 +1,54 @@
-<div class="parent">
-    <div class="div1">
-        <div class="check">
-            <input type="checkbox">
+<section [formGroup]="test">
+    <div class="parent">
+        <div class="div1">
+            <div class="check">
+                <mat-checkbox formControlName="wakeUp"></mat-checkbox>
+            </div>
+            <div class="text">
+                Levantarse temprano (05:00am-10:00am)
+            </div>
         </div>
-        <div class="text">
-            Levantarse temprano (05:00am-10:00am)
+        <div class="div2">
+            <div class="check">
+                <mat-checkbox formControlName="bed"></mat-checkbox>
+            </div>
+            <div class="text">
+                Hacer la cama (Doblar cobijas, acomodar peluches/almohadas)
+            </div>
         </div>
+        <div class="div3">
+            <div class="check">
+                <mat-checkbox formControlName="clean"></mat-checkbox>
+            </div>
+            <div class="text">
+                Limpiar el escritorio
+            </div>
+        </div>
+        <div class="div4">
+            <div class="check">
+                <mat-checkbox formControlName="teethMorn"></mat-checkbox>
+            </div>
+            <div class="text">
+                Cepillar los dientes
+            </div>
+        </div>
+        <div class="div5">
+            <div class="check">
+                <mat-checkbox formControlName="skinMorn"></mat-checkbox>
+            </div>
+            <div class="text">
+                Aplicar skincare de la mañana (minimo crema)
+            </div>
+        </div>
+        <div class="div6">
+            <div class="check">
+                <mat-checkbox formControlName="body"></mat-checkbox>
+            </div>
+            <div class="text">
+                Skincare del cuerpo
+            </div>
+        </div>
+    <button type="submit"><img src="/assets/ser.svg" alt=""></button>
+
     </div>
-    <div class="div2">
-        <div class="check">
-            <input type="checkbox">
-        </div>
-        <div class="text">
-            Hacer la cama (Doblar cobijas, acomodar peluches/almohadas)
-        </div>
-    </div>
-    <div class="div3">
-        <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Limpiar el escritorio
-        </div>
-    </div>
-    <div class="div4">
-        <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Cepillar los dientes
-        </div>
-    </div>
-    <div class="div5">
-        <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Aplicar skincare de la mañana (minimo crema)
-        </div>
-    </div>
-    <div class="div6">
-        <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Skincare del cuerpo
-        </div>
-    </div>
-</div>
+</section>

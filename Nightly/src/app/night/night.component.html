@@ -1,43 +1,60 @@
-<div class="parent">
-<div class="div1"> 
-    <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Limpiar Escritorio
+<section [formGroup]="night">
+    <div class="parent">
+        <div class="div1">
+            <div class="check">
+                <mat-checkbox formControlName="cleanDesk"></mat-checkbox>
+            </div>
+            <div class="text">
+                Limpiar Escritorio
+            </div>
         </div>
-</div>
-<div class="div2"> 
-    <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Skincare Nocturno
+        <div class="div2">
+            <div class="check">
+                <mat-checkbox formControlName="skinNigh"></mat-checkbox>
+            </div>
+            <div class="text">
+                Skincare Nocturno
+            </div>
         </div>
-</div>
-<div class="div3">
-    <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Cepillo los Dientes
-        </div> </div>
-<div class="div4"> 
-    <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Cepillar cabello
+        <div class="div3">
+            <div class="check">
+                <mat-checkbox formControlName="teethNigh"></mat-checkbox>
+            </div>
+            <div class="text">
+                Cepillo los Dientes
+            </div>
         </div>
-</div>
-<div class="div5"> 
-    <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Leer algo antes de dormir
+        <div class="div4">
+            <div class="check">
+                <mat-checkbox formControlName="hair"></mat-checkbox>
+            </div>
+            <div class="text">
+                Cepillar cabello
+            </div>
         </div>
-</div>
-<div class="div6"> 
-    <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Preparar cosas para mañana
+        <div class="div5">
+            <div class="check">
+                <mat-checkbox formControlName="read"></mat-checkbox>
+            </div>
+            <div class="text">
+                Leer algo antes de dormir
+            </div>
         </div>
-</div>
-<div class="div7"> 
-    <div class="check"><input type="checkbox"></div>
-        <div class="text">
-            Preparar cambio de ropa
+        <div class="div6">
+            <div class="check">
+                <mat-checkbox formControlName="prepare"></mat-checkbox>
+            </div>
+            <div class="text">
+                Preparar cosas para mañana
+            </div>
         </div>
-</div>
-</div>
+        <div class="div7">
+            <div class="check">
+                <mat-checkbox formControlName="clothes"></mat-checkbox>
+            </div>
+            <div class="text">
+                Preparar cambio de ropa
+            </div>
+        </div>
+    </div>
+</section>

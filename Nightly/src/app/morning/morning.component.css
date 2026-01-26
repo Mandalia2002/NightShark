@@ -4,6 +4,14 @@
     grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 1vw;
+
+    button{
+        background-color: rgba(250, 235, 215, 0);
+        border:none;
+        img{
+            width: 8vw;
+        }
+    }
 }
 
 .parent>div {
