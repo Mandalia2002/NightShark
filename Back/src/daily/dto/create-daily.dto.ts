@@ -1,1 +1,5 @@
-export class CreateDailyDto {}
+export class CreateDailyDto {
+        date
+    
+        mood
+}

@@ -5,12 +5,12 @@ export class Goal {
     @PrimaryGeneratedColumn('uuid')
     id
 
-    @Column('date')
+    @Column({type: 'datetime'})
     finish_date
 
-    @Column('double')
+    @Column({type:'double'})
     goal_weight
 
-    @Column('date')
+    @Column({type: 'datetime'})
     date
 }

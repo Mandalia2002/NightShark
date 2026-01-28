@@ -9,7 +9,7 @@ export class MorningController {
 
   @Post()
   create(@Body() createMorningDto: CreateMorningDto) {
-    return this.morningService.create(createMorningDto);
+    return this.morningService.createMorning(createMorningDto);
   }
 
   @Get()

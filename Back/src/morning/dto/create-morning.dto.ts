@@ -1,1 +1,13 @@
-export class CreateMorningDto {}
+export class CreateMorningDto {
+    wakeUp
+
+    bed
+
+    clean
+
+    teethMorn
+
+    skinMorn
+
+    body
+}

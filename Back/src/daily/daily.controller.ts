@@ -9,26 +9,26 @@ export class DailyController {
 
   @Post()
   create(@Body() createDailyDto: CreateDailyDto) {
-    return this.dailyService.create(createDailyDto);
+    return this.dailyService.createNewDay(createDailyDto);
   }
 
   @Get()
   findAll() {
-    return this.dailyService.findAll();
+    return this.dailyService.HowManyDays();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.dailyService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.dailyService.findOne(+id);
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDailyDto: UpdateDailyDto) {
-    return this.dailyService.update(+id, updateDailyDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateDailyDto: UpdateDailyDto) {
+  //   return this.dailyService.update(+id, updateDailyDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.dailyService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.dailyService.remove(+id);
+  // }
 }
