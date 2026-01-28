@@ -8,8 +8,8 @@ export class DayController {
   constructor(private readonly dayService: DayService) {}
 
   @Post()
-  create(@Body() createDayDto: CreateDayDto) {
-    return this.dayService.create(createDayDto);
+  create() {
+    return this.dayService.createDay();
   }
 
   @Get()
@@ -22,9 +22,9 @@ export class DayController {
     return this.dayService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDayDto: UpdateDayDto) {
-    return this.dayService.update(+id, updateDayDto);
+  @Patch()
+  update(@Body() updateDayDto: UpdateDayDto) {
+    return this.dayService.update(updateDayDto);
   }
 
   @Delete(':id')

@@ -8,8 +8,8 @@ export class NightController {
   constructor(private readonly nightService: NightService) {}
 
   @Post()
-  create(@Body() createNightDto: CreateNightDto) {
-    return this.nightService.create(createNightDto);
+  create() {
+    return this.nightService.createNight();
   }
 
   @Get()
@@ -22,9 +22,9 @@ export class NightController {
     return this.nightService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNightDto: UpdateNightDto) {
-    return this.nightService.update(+id, updateNightDto);
+  @Patch()
+  update( @Body() updateNightDto: UpdateNightDto) {
+    return this.nightService.update(updateNightDto);
   }
 
   @Delete(':id')

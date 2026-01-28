@@ -10,4 +10,6 @@ export class CreateMorningDto {
     skinMorn
 
     body
+
+    percentage
 }

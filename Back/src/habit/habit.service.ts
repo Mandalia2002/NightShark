@@ -20,9 +20,11 @@ export class HabitService {
   ){}
 
   create(createHabitDto: CreateHabitDto) {
-    const man = this.Morning.createMorning
-    const dia = this.Day.create
-    const noc = this.Night.create
+    const man = this.Morning.createMorning()
+    const dia = this.Day.createDay()
+    const noc = this.Night.createNight()
+
+    
   }
 
   findAll() {

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateNightDto } from './dto/create-night.dto';
 import { UpdateNightDto } from './dto/update-night.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -11,11 +11,57 @@ export class NightService {
   constructor(
     @InjectRepository(Night)
     private readonly NightRepository: Repository<Night>
-  ){}
+  ) { }
 
-  create(createNightDto: CreateNightDto) {
-        const a = {
-      ...createNightDto
+  async createNight() {
+    try {
+      const dateNow = new Date()
+      dateNow.setHours(0, 0, 0, 0)
+      const nightExists = await this.NightRepository.findOne({ where: { date: dateNow } })
+      if (!nightExists) {
+
+        const contrus = {
+          cleanDesk: false,
+          skinNigh: false,
+          teethNigh: false,
+          hair: false,
+          read: false,
+          prepare: false,
+          clothes: false,
+          percentage: 0,
+          date: dateNow
+        }
+
+        const night = this.NightRepository.create(contrus)
+        const nightCreated = await this.NightRepository.save(night)
+
+        return nightCreated
+      } else {
+        return nightExists
+      }
+    } catch (error) {
+      return {
+        message: "An Error has ocurred",
+        error: error
+      }
+    }
+  }
+
+  findAll() {
+    return `This action returns all night`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} night`;
+  }
+
+  async update(updateNightDto: UpdateNightDto) {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const nightExists = await this.NightRepository.findOne({ where: { date: dateNow } })
+    if (!nightExists) throw new HttpException('Night on this date: ' + dateNow + " not found", 404)
+    const a = {
+      ...updateNightDto
     }
     const b = Object.values(a)
     const c = b.reduce((accu, curr) => {
@@ -27,38 +73,25 @@ export class NightService {
       return accu;
     }, {});
 
-    const d = Object.values(c.true).length
-
-    const nume = ((d * 100) / 6)
-
-    const contrus = {
-      cleanDesk: createNightDto.cleanDesk.value,
-      skinNigh: createNightDto.skinNigh.value,
-      teethNigh: createNightDto.teethNigh.value,
-      hair: createNightDto.hair.value,
-      read: createNightDto.read.value,
-      prepare: createNightDto.prepare.value,
-      clothes: createNightDto.clothes.value,
-      percentage: nume,
-      date: new Date()
+    if (c.true != undefined || c.true != null) {
+      let changes = Object.values(c.true)
+      const d = changes.length
+      const nume: any = (d * 100) / 6
+      let crotus = {
+        cleanDesk: updateNightDto.cleanDesk.value || false,
+        skinNigh: updateNightDto.skinNigh.value || false,
+        teethNigh: updateNightDto.teethNigh.value || false,
+        hair: updateNightDto.hair.value || false,
+        read: updateNightDto.read.value || false,
+        prepare: updateNightDto.prepare.value || false,
+        clothes: updateNightDto.clothes.value || false,
+        percentage: nume
+      }
+      const night = await this.NightRepository.update(nightExists, crotus)
+      return night
+    } else {
+      return { message: "No changes" }
     }
-
-    const night = this.NightRepository.create(contrus)
-    this.NightRepository.save(night)
-
-    return nume
-  }
-
-  findAll() {
-    return `This action returns all night`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} night`;
-  }
-
-  update(id: number, updateNightDto: UpdateNightDto) {
-    return `This action updates a #${id} night`;
   }
 
   remove(id: number) {

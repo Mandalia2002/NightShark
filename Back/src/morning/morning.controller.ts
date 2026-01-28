@@ -8,8 +8,8 @@ export class MorningController {
   constructor(private readonly morningService: MorningService) {}
 
   @Post()
-  create(@Body() createMorningDto: CreateMorningDto) {
-    return this.morningService.createMorning(createMorningDto);
+  create() {
+    return this.morningService.createMorning();
   }
 
   @Get()
@@ -22,9 +22,9 @@ export class MorningController {
     return this.morningService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMorningDto: UpdateMorningDto) {
-    return this.morningService.update(+id, updateMorningDto);
+  @Patch()
+  update(@Body() updateMorningDto: UpdateMorningDto) {
+    return this.morningService.update(updateMorningDto);
   }
 
   @Delete(':id')

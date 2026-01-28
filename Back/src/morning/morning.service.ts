@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateMorningDto } from './dto/create-morning.dto';
 import { UpdateMorningDto } from './dto/update-morning.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Morning } from './entities/morning.entity';
-import { Repository } from 'typeorm';
+import { ILike, Like, Repository } from 'typeorm';
 
 @Injectable()
 export class MorningService {
@@ -12,9 +12,54 @@ export class MorningService {
   private readonly MorningRepository: Repository<Morning>
   ) { }
 
-  async createMorning(createMorningDto: CreateMorningDto) {
+  async createMorning() {
+    try {
+      const dateNow = new Date()
+      dateNow.setHours(0, 0, 0, 0)
+      const morningExists = await this.MorningRepository.findOne({ where: { date: dateNow } })
+      if (!morningExists) {
+
+        const contrus = {
+          wakeUp: false,
+          bed: false,
+          clean: false,
+          teethMorn: false,
+          skinMorn: false,
+          body: false,
+          percentage: 0,
+          date: dateNow
+        }
+
+        const morning = this.MorningRepository.create(contrus)
+        const morningCreated = await this.MorningRepository.save(morning)
+
+        return morningCreated
+      } else {
+        return morningExists
+      }
+    } catch (error) {
+      return {
+        message: "An Error has ocurred",
+        error: error
+      }
+    }
+  }
+
+  findAll() {
+    return `This action returns all morning`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} morning`;
+  }
+
+  async update(updateMorningDto: UpdateMorningDto) {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const morningExists = await this.MorningRepository.findOne({ where: { date: dateNow } })
+    if (!morningExists) throw new HttpException('Morning on this date: ' + dateNow + " not found", 404)
     const a = {
-      ...createMorningDto
+      ...updateMorningDto
     }
     const b = Object.values(a)
     const c = b.reduce((accu, curr) => {
@@ -26,39 +71,24 @@ export class MorningService {
       return accu;
     }, {});
 
-    // const d = Object.values(c.true).length
-
-    return c.length
-
-    // const nume = ((d*100)/6)
-
-    // const contrus = {
-    //   wakeUp: createMorningDto.wakeUp.value||false,
-    //   bed: createMorningDto.bed.value||false,
-    //   clean: createMorningDto.clean.value||false,
-    //   teethMorn: createMorningDto.teethMorn.value||false,
-    //   skinMorn: createMorningDto.skinMorn.value||false,
-    //   body: createMorningDto.body.value||false,
-    //   percentage: nume,
-    //   date: new Date()
-    // }
-
-    // const morning = this.MorningRepository.create(contrus)
-    // await this.MorningRepository.save(morning)
-
-    // return nume
-  }
-
-  findAll() {
-    return `This action returns all morning`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} morning`;
-  }
-
-  update(id: number, updateMorningDto: UpdateMorningDto) {
-    return `This action updates a #${id} morning`;
+    if (c.true != undefined || c.true != null) {
+      let changes = Object.values(c.true)
+      const d = changes.length
+      const nume: any = (d * 100) / 6
+      let crotus = {
+        wakeUp: updateMorningDto.wakeUp.value || false,
+        bed: updateMorningDto.bed.value || false,
+        clean: updateMorningDto.clean.value || false,
+        teethMorn: updateMorningDto.teethMorn.value || false,
+        skinMorn: updateMorningDto.skinMorn.value || false,
+        body: updateMorningDto.body.value || false,
+        percentage: nume
+      }
+      const morning = await this.MorningRepository.update(morningExists, crotus)
+      return morning
+    } else {
+      return { message: "No changes" }
+    }
   }
 
   remove(id: number) {
