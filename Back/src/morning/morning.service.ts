@@ -1,9 +1,8 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { CreateMorningDto } from './dto/create-morning.dto';
 import { UpdateMorningDto } from './dto/update-morning.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Morning } from './entities/morning.entity';
-import { ILike, Like, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class MorningService {
@@ -45,12 +44,12 @@ export class MorningService {
     }
   }
 
-  findAll() {
-    return `This action returns all morning`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} morning`;
+  async findOne() {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const morningExists = await this.MorningRepository.findOne({ where: { date: dateNow } })
+    if(!morningExists) throw new HttpException("Morning of this date:"+ dateNow + "does not exists",404);
+    return morningExists
   }
 
   async update(updateMorningDto: UpdateMorningDto) {
@@ -74,7 +73,7 @@ export class MorningService {
     if (c.true != undefined || c.true != null) {
       let changes = Object.values(c.true)
       const d = changes.length
-      const nume: any = (d * 100) / 6
+      const nume: any = ((d * 100) / 6)/100
       let crotus = {
         wakeUp: updateMorningDto.wakeUp.value || false,
         bed: updateMorningDto.bed.value || false,
@@ -89,9 +88,5 @@ export class MorningService {
     } else {
       return { message: "No changes" }
     }
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} morning`;
   }
 }

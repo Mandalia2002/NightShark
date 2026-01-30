@@ -1,21 +1,26 @@
 import { Injectable } from '@nestjs/common';
-import { CreateDailyDto } from './dto/create-daily.dto';
-import { UpdateDailyDto } from './dto/update-daily.dto';
 import { Daily } from './entities/daily.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { HabitService } from 'src/habit/habit.service';
 
 @Injectable()
 export class DailyService {
 
   constructor(
     @InjectRepository(Daily)
-    private readonly DailyRepository:Repository<Daily>,
+    private readonly DailyRepository: Repository<Daily>,
+    private readonly Habit: HabitService
   ) { }
 
-  async createNewDay(createDailyDto: CreateDailyDto) {
-
+  async createNewDay() {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const sun = await this.DailyRepository.findOne({where:{date:dateNow}}) 
+    if(sun) {return sun}
+    const habit = await this.Habit.create()
     const all = {
+      habit: habit.id,
       date: new Date()
     }
 
@@ -27,6 +32,17 @@ export class DailyService {
   async HowManyDays() {
     const a = await this.DailyRepository.count()
     return a
+  }
+
+  async findAllFromMonthORYear(month?: string, year?: number) {
+    if (!month && year) {
+      const all = this.DailyRepository.createQueryBuilder('find').where('YEAR(find.date) = :year', { year: year }).getMany()
+      return all
+    }
+    if (!year && month) {
+      const all = this.DailyRepository.createQueryBuilder('find').where('MONTH(find.date) = :month', { month: month }).getMany()
+      return all
+    }
   }
 
   // async findOne(id: number) {

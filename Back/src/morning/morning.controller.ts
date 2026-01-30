@@ -1,6 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch } from '@nestjs/common';
 import { MorningService } from './morning.service';
-import { CreateMorningDto } from './dto/create-morning.dto';
 import { UpdateMorningDto } from './dto/update-morning.dto';
 
 @Controller('morning')
@@ -12,23 +11,13 @@ export class MorningController {
     return this.morningService.createMorning();
   }
 
-  @Get()
-  findAll() {
-    return this.morningService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.morningService.findOne(+id);
+  @Get('/present')
+  findOne() {
+    return this.morningService.findOne();
   }
 
   @Patch()
   update(@Body() updateMorningDto: UpdateMorningDto) {
     return this.morningService.update(updateMorningDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.morningService.remove(+id);
   }
 }

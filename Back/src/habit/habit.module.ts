@@ -17,6 +17,6 @@ import { NightModule } from 'src/night/night.module';
   ],
   controllers: [HabitController],
   providers: [HabitService],
-  exports:[TypeOrmModule]
+  exports:[TypeOrmModule, HabitService]
 })
 export class HabitModule {}

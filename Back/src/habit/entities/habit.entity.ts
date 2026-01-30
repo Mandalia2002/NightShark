@@ -24,6 +24,6 @@ export class Habit {
     @Column({type: 'double'})
     percentage
 
-    @Column({ type: 'datetime' })
-    date
+    @Column({ type: 'date' })
+    date: Date
 }

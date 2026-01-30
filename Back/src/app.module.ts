@@ -10,6 +10,7 @@ import { GoalModule } from './goal/goal.module';
 import { WeightModule } from './weight/weight.module';
 import { DatabaseModule } from './database/database.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RecordsModule } from './records/records.module';
 
 @Module({
   imports: [
@@ -31,7 +32,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: false,
 
-    })],
+    }),
+    RecordsModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { DailyService } from './daily.service';
-import { CreateDailyDto } from './dto/create-daily.dto';
 import { UpdateDailyDto } from './dto/update-daily.dto';
 
 @Controller('daily')
@@ -8,8 +7,8 @@ export class DailyController {
   constructor(private readonly dailyService: DailyService) {}
 
   @Post()
-  create(@Body() createDailyDto: CreateDailyDto) {
-    return this.dailyService.createNewDay(createDailyDto);
+  create() {
+    return this.dailyService.createNewDay();
   }
 
   @Get()

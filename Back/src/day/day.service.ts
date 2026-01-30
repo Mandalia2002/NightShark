@@ -1,5 +1,4 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { CreateDayDto } from './dto/create-day.dto';
 import { UpdateDayDto } from './dto/update-day.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Day } from './entities/day.entity';
@@ -46,12 +45,12 @@ export class DayService {
     }
   }
 
-  findAll() {
-    return `This action returns all day`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} day`;
+  async findOne() {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const dayExists = await this.DayRepository.findOne({ where: { date: dateNow } })
+    if (!dayExists) throw new HttpException("Day of this date:" + dateNow + "does not exists", 404);
+    return dayExists
   }
 
   async update(updateDayDto: UpdateDayDto) {
@@ -75,7 +74,7 @@ export class DayService {
     if (c.true != undefined || c.true != null) {
       let changes = Object.values(c.true)
       const d = changes.length
-      const nume: any = (d * 100) / 6
+      const nume: any = ((d * 100) / 6) / 100
       let crotus = {
         exercise: updateDayDto.exercise.value || false,
         dailies: updateDayDto.dailies.value || false,
@@ -90,9 +89,5 @@ export class DayService {
     } else {
       return { message: "No changes" }
     }
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} day`;
   }
 }

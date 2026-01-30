@@ -47,12 +47,12 @@ export class NightService {
     }
   }
 
-  findAll() {
-    return `This action returns all night`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} night`;
+  async findOne() {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const nightExists = await this.NightRepository.findOne({ where: { date: dateNow } })
+    if (!nightExists) throw new HttpException("Night of this date:" + dateNow + "does not exists", 404);
+    return nightExists
   }
 
   async update(updateNightDto: UpdateNightDto) {
@@ -76,7 +76,7 @@ export class NightService {
     if (c.true != undefined || c.true != null) {
       let changes = Object.values(c.true)
       const d = changes.length
-      const nume: any = (d * 100) / 6
+      const nume: any = ((d * 100) / 7)/100
       let crotus = {
         cleanDesk: updateNightDto.cleanDesk.value || false,
         skinNigh: updateNightDto.skinNigh.value || false,
@@ -92,9 +92,5 @@ export class NightService {
     } else {
       return { message: "No changes" }
     }
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} night`;
   }
 }

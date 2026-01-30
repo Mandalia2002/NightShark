@@ -1,9 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { CreateHabitDto } from './dto/create-habit.dto';
-import { UpdateHabitDto } from './dto/update-habit.dto';
+import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Habit } from './entities/habit.entity';
-import { JsonContains, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { MorningService } from 'src/morning/morning.service';
 import { DayService } from 'src/day/day.service';
 import { NightService } from 'src/night/night.service';
@@ -14,35 +12,80 @@ export class HabitService {
   constructor(
     @InjectRepository(Habit)
     private readonly HabitRepository: Repository<Habit>,
-    private Morning: MorningService,
-    private Day: DayService,
-    private Night: NightService
+    private readonly Morning: MorningService,
+    private readonly Day: DayService,
+    private readonly Night: NightService
   ) { }
 
-  async create(createHabitDto: CreateHabitDto) {
-    try {
-      const man = await this.Morning.createMorning()
-      const dia = await this.Day.createDay()
-      const noc = await this.Night.createNight()
+  async create() {
+      const dateNow = new Date()
+      dateNow.setHours(0, 0, 0, 0)
+      const habitExists = await this.HabitRepository.findOne({ where: { date: dateNow } })
+      if (!habitExists) {
+        const man = await this.Morning.createMorning()
+        const dia = await this.Day.createDay()
+        const noc = await this.Night.createNight()
 
-      const manFalse = this.extractFalseValues(man)
-      const diaFalse = this.extractFalseValues(dia)
-      const nocFalse = this.extractFalseValues(noc)
+        const manFalse = this.extractFalseValues(man)
+        const diaFalse = this.extractFalseValues(dia)
+        const nocFalse = this.extractFalseValues(noc)
 
-      let manPor: number
-      let diaPor: number
-      let nocPor: number
-      let total
-      if ('percentage' in man && 'percentage' in dia && 'percentage' in noc) {
-        manPor = man.percentage
-        diaPor = dia.percentage
-        nocPor = noc.percentage
-        total = ((manPor + diaPor + nocPor) * 100) / 3
+        let manPor: number
+        let diaPor: number
+        let nocPor: number
+        let total
+        if ('percentage' in man && 'percentage' in dia && 'percentage' in noc) {
+          manPor = man.percentage
+          diaPor = dia.percentage
+          nocPor = noc.percentage
+          total = ((manPor + diaPor + nocPor) * 100) / 3
+        }
+
+        const habit = this.HabitRepository.create({
+          morning_habit: manFalse,
+          day_habit: diaFalse,
+          night_habit: nocFalse,
+          date: dateNow,
+          percentage: total
+        })
+
+        const habitCreated = await this.HabitRepository.save(habit)
+
+        return habitCreated
+      } else {
+        return habitExists
       }
+  }
 
-      console.log(manFalse)
+  async findAll() {
+    const all = await this.HabitRepository.find()
+    return all
+  }
 
+  async findOne() {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const habitExists = await this.HabitRepository.findOne({ where: { date: dateNow } })
+    if (!habitExists) throw new HttpException("Habit of this date: " + dateNow + " does not exists", 404)
+    return habitExists
+  }
 
+  async update() {
+    try {
+      const dateNow = new Date()
+      dateNow.setHours(0, 0, 0, 0)
+      const habitExists = await this.HabitRepository.findOne({ where: { date: dateNow } })
+      if (!habitExists) throw new HttpException("Habit of this date: " + dateNow + " does not exists", 404)
+      const morningExists = await this.Morning.findOne()
+      const dayExists = await this.Day.findOne()
+      const nightExists = await this.Night.findOne()
+      let total = 0
+
+      total = (morningExists.percentage * 100 + dayExists.percentage * 100 + nightExists.percentage * 100) / 3
+
+      habitExists.percentage = total
+      const habitUpdated = await this.HabitRepository.save(habitExists)
+      return habitUpdated
     } catch (error) {
       return {
         message: "An Error has Ocurred",
@@ -70,23 +113,5 @@ export class HabitService {
 
     recurse(obj);
     return keys;
-  }
-
-
-
-  findAll() {
-    return `This action returns all habit`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} habit`;
-  }
-
-  update(id: number, updateHabitDto: UpdateHabitDto) {
-    return `This action updates a #${id} habit`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} habit`;
   }
 }
