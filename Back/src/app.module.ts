@@ -6,7 +6,6 @@ import { DayModule } from './day/day.module';
 import { NightModule } from './night/night.module';
 import { MorningModule } from './morning/morning.module';
 import { HabitModule } from './habit/habit.module';
-import { GoalModule } from './goal/goal.module';
 import { WeightModule } from './weight/weight.module';
 import { DatabaseModule } from './database/database.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -19,7 +18,6 @@ import { RecordsModule } from './records/records.module';
     NightModule,
     MorningModule,
     HabitModule,
-    GoalModule,
     WeightModule,
     DatabaseModule,
     TypeOrmModule.forRoot({

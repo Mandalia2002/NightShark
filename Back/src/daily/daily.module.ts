@@ -12,6 +12,6 @@ import { HabitModule } from 'src/habit/habit.module';
   ],
   controllers: [DailyController],
   providers: [DailyService],
-  exports: [TypeOrmModule]
+  exports: [TypeOrmModule, DailyService]
 })
 export class DailyModule {}

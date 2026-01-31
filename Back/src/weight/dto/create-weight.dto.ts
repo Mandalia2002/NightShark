@@ -1,1 +1,4 @@
-export class CreateWeightDto {}
+export class CreateWeightDto {
+        weight
+
+}

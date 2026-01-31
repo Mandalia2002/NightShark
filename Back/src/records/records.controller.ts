@@ -1,15 +1,19 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { RecordsService } from './records.service';
-import { CreateRecordDto } from './dto/create-record.dto';
 import { UpdateRecordDto } from './dto/update-record.dto';
 
 @Controller('records')
 export class RecordsController {
-  constructor(private readonly recordsService: RecordsService) {}
+  constructor(private readonly recordsService: RecordsService) { }
 
-  @Post()
-  create(@Body() createRecordDto: CreateRecordDto) {
-    return this.recordsService.create(createRecordDto);
+  @Post('/month')
+  createMonth() {
+    return this.recordsService.createMonthReport();
+  }
+
+  @Post('/year')
+  createYear() {
+    return this.recordsService.createYearReport();
   }
 
   @Get()

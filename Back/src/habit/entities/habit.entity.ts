@@ -1,8 +1,5 @@
 import { Daily } from "src/daily/entities/daily.entity";
-import { Day } from "src/day/entities/day.entity";
-import { Morning } from "src/morning/entities/morning.entity";
-import { Night } from "src/night/entities/night.entity";
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm";
 
 @Entity()
 export class Habit {

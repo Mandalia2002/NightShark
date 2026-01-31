@@ -1,5 +1,4 @@
-import { Goal } from "src/goal/entities/goal.entity";
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Weight {
@@ -9,10 +8,15 @@ export class Weight {
     @Column({type: 'double'})
     weight
 
-    @Column({type: 'datetime'})
-    date
+    @Column({type: 'date'})
+    date_weight: Date
 
-    @OneToOne(()=>Goal, go=>go.id)
-    @JoinColumn({name: 'goal'})
-    goal
+    @Column({type:'date'})
+    date_goal: Date
+
+    @Column({type: 'double'})
+    goal_weight
+
+    @Column({type:'boolean', default:false})
+    done: boolean
 }

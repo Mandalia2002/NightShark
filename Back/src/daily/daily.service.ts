@@ -16,12 +16,12 @@ export class DailyService {
   async createNewDay() {
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
-    const sun = await this.DailyRepository.findOne({where:{date:dateNow}}) 
-    if(sun) {return sun}
+    const sun = await this.DailyRepository.findOne({ where: { date: dateNow } })
+    if (sun) { return sun }
     const habit = await this.Habit.create()
     const all = {
       habit: habit.id,
-      date: new Date()
+      date: dateNow
     }
 
     const a = this.DailyRepository.create(all)
@@ -34,15 +34,28 @@ export class DailyService {
     return a
   }
 
-  async findAllFromMonthORYear(month?: string, year?: number) {
-    if (!month && year) {
-      const all = this.DailyRepository.createQueryBuilder('find').where('YEAR(find.date) = :year', { year: year }).getMany()
-      return all
-    }
-    if (!year && month) {
-      const all = this.DailyRepository.createQueryBuilder('find').where('MONTH(find.date) = :month', { month: month }).getMany()
-      return all
-    }
+  async findAllFromMonth(dat: Date) {
+    const month = dat.toLocaleDateString('default', { month: '2-digit' })
+    const year = dat.toLocaleDateString('default', { year: 'numeric' })
+    const start = new Date(`${year}-${month}-01T00:00:00Z`)
+    const end = new Date(`${year}-${month}-31T00:00:00Z`)
+    const all = this.DailyRepository.createQueryBuilder('find')
+      .leftJoinAndSelect("find.habit", "habit")
+      .where('find.date BETWEEN :start AND :end', { start, end })
+      .getMany()
+    return all
+
+  }
+
+  async findAllFromYear(dat: Date) {
+    const year = dat.toLocaleDateString('default', { year: 'numeric' })
+    const start = new Date(`${year}-01-01T00:00:00Z`)
+    const end = new Date(`${year}-12-31T00:00:00Z`)
+    const all = this.DailyRepository.createQueryBuilder('find')
+      .leftJoinAndSelect("find.habit", "habit")
+      .where('find.date BETWEEN :start AND :end', { start, end })
+      .getMany()
+    return all
   }
 
   // async findOne(id: number) {

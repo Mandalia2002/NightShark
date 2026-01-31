@@ -22,9 +22,9 @@ export class WeightController {
     return this.weightService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateWeightDto: UpdateWeightDto) {
-    return this.weightService.update(+id, updateWeightDto);
+  @Patch()
+  update(@Body() updateWeightDto: UpdateWeightDto) {
+    return this.weightService.update(updateWeightDto);
   }
 
   @Delete(':id')
