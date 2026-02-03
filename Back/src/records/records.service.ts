@@ -23,7 +23,6 @@ export class RecordsService {
     let habitsDay: any[] = []
     let habitsNig: any[] = []
     let mood: any[] = []
-
     function recurse(currentObj: any) {
       for (const key in currentObj) {
         if (Object.hasOwn(currentObj, key)) {
@@ -37,24 +36,48 @@ export class RecordsService {
         }
       }
     }
-
-    percentages.push(40)
-
     recurse(dailies)
-    const con = dailies.length + 1
-    console.log(con)
-    const total:number = percentages.reduce((a, c) => a + c, 0)
-    const monthPercentage = ((total * 100) / con) / 100 //---------------------
+    const con = dailies.length
+    const total: number = percentages.reduce((a, c) => a + c, 0)
+    const monthPercentage = ((total * 100) / con) / 100
 
-    const habits ={}
+    const habits = {}
+    const habitsImprove: any[] = []
 
-    const plano = habitsMor.flat(Infinity)
+    const manana = habitsMor.flat(Infinity)
+    const dia = habitsDay.flat(Infinity)
+    const noche = habitsNig.flat(Infinity)
 
-    for (const num of plano ){
+    for (const num of manana) {
+      habits[num] = habits[num] ? habits[num] + 1 : 1;
+    }
+    for (const num of dia) {
+      habits[num] = habits[num] ? habits[num] + 1 : 1;
+    }
+    for (const num of noche) {
       habits[num] = habits[num] ? habits[num] + 1 : 1;
     }
 
-    console.log(habits)
+    const order = Object.entries(habits).toSorted(([, a]: [string, number], [, b]: [string, number]) => b - a)
+    habitsImprove.push(order[0], order[1], order[2])
+    const habitsImp = Object.fromEntries(habitsImprove)
+
+    const as = {}
+    for (const num of mood) {
+      as[num] = as[num] ? as[num] + 1 : 1;
+    }
+    const orderMood = Object.entries(as).toSorted(([, a]: [string, number], [, b]: [string, number]) => b - a)
+
+    const recordMonth = this.RecordRepository.create({
+      percentages: monthPercentage,
+      habits_improve: habitsImp,
+      mood_statistics: orderMood,
+      date_month: `${dateNow.toLocaleDateString('default', { month: '2-digit' })}`,
+      year: Number(dateNow.toLocaleDateString('default', { year: 'numeric' }))
+    })
+
+    this.RecordRepository.save(recordMonth)
+    return recordMonth
   }
 
   async createYearReport() {
