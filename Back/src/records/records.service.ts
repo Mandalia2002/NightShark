@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { UpdateRecordDto } from './dto/update-record.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DailyService } from 'src/daily/daily.service';
-import { Repository } from 'typeorm';
+import { Not, Repository } from 'typeorm';
 import { Record } from './entities/record.entity';
 
 @Injectable()
@@ -66,12 +66,11 @@ export class RecordsService {
     for (const num of mood) {
       as[num] = as[num] ? as[num] + 1 : 1;
     }
-    const orderMood = Object.entries(as).toSorted(([, a]: [string, number], [, b]: [string, number]) => b - a)
 
     const recordMonth = this.RecordRepository.create({
       percentages: monthPercentage,
       habits_improve: habitsImp,
-      mood_statistics: orderMood,
+      mood_statistics: as,
       date_month: `${dateNow.toLocaleDateString('default', { month: '2-digit' })}`,
       year: Number(dateNow.toLocaleDateString('default', { year: 'numeric' }))
     })
@@ -82,37 +81,53 @@ export class RecordsService {
 
   async createYearReport() {
     const dateNow = new Date()
-    dateNow.setFullYear(2025)
-    dateNow.setHours(0, 0, 0, 0)
-    const dailies = await this.Daily.findAllFromYear(dateNow)
+    const year = dateNow.toLocaleDateString('default', { year: 'numeric' })
+    const monthly = await this.RecordRepository.find({ where: { year: Number(year), date_month: Not('año') } })
     let percentages: any[] = []
-    let habitsMor: any[] = []
-    let habitsDay: any[] = []
-    let habitsNig: any[] = []
+    let habitsImproving: any[] = []
     let mood: any[] = []
 
     function recurse(currentObj: any) {
       for (const key in currentObj) {
         if (Object.hasOwn(currentObj, key)) {
-          const days = currentObj[key]
-          const value = currentObj[key].habit;
-          mood.push(days.mood)
-          percentages.push(value.percentage);
-          habitsMor.push(value.morning_habit)
-          habitsDay.push(value.day_habit)
-          habitsNig.push(value.night_habit)
+          const months = currentObj[key]
+          mood.push(months.mood_statistics)
+          percentages.push(months.percentages);
+          habitsImproving.push(months.habits_improve)
         }
       }
     }
-    recurse(dailies)
+    recurse(monthly)
 
-    return {
-      percentages,
-      habitsMor,
-      habitsDay,
-      habitsNig,
-      mood
-    }
+    const con = monthly.length
+    const total: number = percentages.reduce((a, c) => a + c, 0)
+    const monthPercentage = ((total * 100) / con) / 100
+
+    const b = habitsImproving.flat(Infinity)
+    const result = b.reduce((acc, obj) => {
+      for (const [key, value] of Object.entries(obj)) {
+        acc[key] = (acc[key] || 0) + value
+      }
+      return acc
+    }, {} as { [key: string]: number })
+
+    const moods = mood.reduce((acc, obj) => {
+      for (const [key, value] of Object.entries(obj)) {
+        acc[key] = (acc[key] || 0) + value
+      }
+      return acc
+    }, {} as { [key: string]: number })
+
+    const recordMonth = this.RecordRepository.create({
+      percentages: monthPercentage,
+      habits_improve: result,
+      mood_statistics: moods,
+      date_month: `año`,
+      year: Number(dateNow.toLocaleDateString('default', { year: 'numeric' }))
+    })
+
+    this.RecordRepository.save(recordMonth)
+    return recordMonth
   }
 
   findAll() {
