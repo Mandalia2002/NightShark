@@ -12,14 +12,14 @@ export class WeightController {
     return this.weightService.create(createWeightDto);
   }
 
-  @Get()
-  findAll() {
-    return this.weightService.findAll();
-  }
+  // @Get()
+  // findAll() {
+  //   return this.weightService.findAll();
+  // }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.weightService.findOne(+id);
+  @Get()
+  findOne() {
+    return this.weightService.findOne();
   }
 
   @Patch()
@@ -27,8 +27,8 @@ export class WeightController {
     return this.weightService.update(updateWeightDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.weightService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.weightService.remove(+id);
+  // }
 }
