@@ -1,4 +1,4 @@
-import { Component  } from '@angular/core';
+import { Component, inject  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PesoService } from '../peso.service';
 
@@ -9,8 +9,24 @@ import { PesoService } from '../peso.service';
   ],
   templateUrl: './peso.component.html',
   styleUrl: './peso.component.css',
+  providers: [PesoService]
 })
 export class PesoComponent {
+  private weight = inject(PesoService)
 
-  peso = 50
+  info = this.weight.getWeight()
+
+  peso: any;
+  pesoactual: any;
+  pesofaltante: any;
+  diasfaltantes: any;
+
+  constructor() {
+    this.info.subscribe((data: any) => {
+      this.peso = data.weight;
+      this.pesoactual = data.weight
+      this.pesofaltante = data.weight_left
+      this.diasfaltantes = data.days_left
+    });
+  }
 }
