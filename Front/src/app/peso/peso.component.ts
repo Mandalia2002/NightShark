@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PesoService } from '../peso.service';
 
 @Component({
   selector: 'app-peso',
   imports: [
-    CommonModule,
+    CommonModule
   ],
   templateUrl: './peso.component.html',
-  styleUrl: './peso.component.css'
+  styleUrl: './peso.component.css',
 })
 export class PesoComponent {
-peso=50;
+
+  peso = 50
 }

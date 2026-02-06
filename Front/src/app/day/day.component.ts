@@ -30,7 +30,7 @@ export class DayComponent {
 
   enviar(valor2: string) {
     console.log(valor2);
-    //this.HttpClient.post('http://localhost:3000/api/estado', {valor: valor2}).subscribe(arg => this.property = arg);
+    // this.HttpClient.post('http://localhost:3000/api/estado', {valor: valor2}).subscribe(arg => this.property = arg);
 
   }
 
