@@ -233,7 +233,7 @@
     yargs "18.0.0"
     zod "4.1.13"
 
-"@angular/common@^19.0.0", "@angular/common@^19.0.0 || ^20.0.0", "@angular/common@^20.3.16", "@angular/common@20.3.16":
+"@angular/common@^19.0.0 || ^20.0.0", "@angular/common@^20.3.16", "@angular/common@20.3.16":
   version "20.3.16"
   resolved "https://registry.npmjs.org/@angular/common/-/common-20.3.16.tgz"
   integrity sha512-GRAziNlntwdnJy3F+8zCOvDdy7id0gITjDnM6P9+n2lXvtDuBLGJKU3DWBbvxcCjtD6JK/g/rEX5fbCxbUHkQQ==
@@ -261,21 +261,21 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^19.0.0", "@angular/core@^19.0.0 || ^20.0.0", "@angular/core@^20.0.0", "@angular/core@^20.3.16", "@angular/core@20.3.16":
+"@angular/core@^19.0.0 || ^20.0.0", "@angular/core@^20.0.0", "@angular/core@^20.3.16", "@angular/core@20.3.16":
   version "20.3.16"
   resolved "https://registry.npmjs.org/@angular/core/-/core-20.3.16.tgz"
   integrity sha512-KSFPKvOmWWLCJBbEO+CuRUXfecX2FRuO0jNi9c54ptXMOPHlK1lIojUnyXmMNzjdHgRug8ci9qDuftvC2B7MKg==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^19.0.0", "@angular/forms@^19.0.0 || ^20.0.0", "@angular/forms@^20.3.16":
+"@angular/forms@^19.0.0 || ^20.0.0", "@angular/forms@^20.3.16":
   version "20.3.16"
   resolved "https://registry.npmjs.org/@angular/forms/-/forms-20.3.16.tgz"
   integrity sha512-1yzbXpExTqATpVcqA3wGrq4ACFIP3mRxA4pbso5KoJU+/4JfzNFwLsDaFXKpm5uxwchVnj8KM2vPaDOkvtp7NA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/localize@^19.0.0", "@angular/localize@^20.0.0", "@angular/localize@^20.3.16":
+"@angular/localize@^20.0.0", "@angular/localize@^20.3.16":
   version "20.3.16"
   resolved "https://registry.npmjs.org/@angular/localize/-/localize-20.3.16.tgz"
   integrity sha512-7S2ACDZC1Ag1+rc991BMvW6gDyBCH7ykGWpZL1aHOmnq4K70Sf8p2VyQMtYhaz7XfWeXxwBQjCncVYv6D7RO5A==
@@ -1021,13 +1021,6 @@
     "@napi-rs/nice-win32-arm64-msvc" "1.1.1"
     "@napi-rs/nice-win32-ia32-msvc" "1.1.1"
     "@napi-rs/nice-win32-x64-msvc" "1.1.1"
-
-"@ng-bootstrap/ng-bootstrap@^18.0.0":
-  version "18.0.0"
-  resolved "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-18.0.0.tgz"
-  integrity sha512-GeSAz4yiGq49psdte8kcf+Y562wB3jK/qKRAkh6iA32lcXmy2sfQXVAmlHdjZ3AyP+E8lf3yMwuPdSKiYcDgSg==
-  dependencies:
-    tslib "^2.3.0"
 
 "@npmcli/agent@^4.0.0":
   version "4.0.0"
