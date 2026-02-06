@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from "@angular/forms";
@@ -8,10 +8,9 @@ import { FormsModule, FormBuilder, ReactiveFormsModule } from "@angular/forms";
   selector: 'app-day',
   imports: [
     MatCheckboxModule,
-    CommonModule,
     FormsModule,
     ReactiveFormsModule
-  ],
+],
   templateUrl: './day.component.html',
   styleUrl: './day.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

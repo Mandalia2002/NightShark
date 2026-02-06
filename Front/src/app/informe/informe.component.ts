@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-informe',
-  imports: [
-    CommonModule
-  ],
+  imports: [],
   templateUrl: './informe.component.html',
   styleUrl: './informe.component.css'
 })
