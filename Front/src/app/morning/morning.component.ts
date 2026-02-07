@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/core';
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PesoService } from '../peso.service';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -38,9 +39,11 @@ export type ChartOptions = {
   ],
   templateUrl: './morning.component.html',
   styleUrl: './morning.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [PesoService]
 })
 export class MorningComponent {
+  private morning = inject(PesoService)
   private readonly _formBuilder = inject(FormBuilder);
   readonly test = this._formBuilder.group({
     wakeUp: false,
@@ -51,24 +54,35 @@ export class MorningComponent {
     body: false
   })
 
+  a = this.morning.getMorning()
+  b: any
+
+
   @ViewChild("chart")
   chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
   constructor() {
+    this.a.subscribe((data: any) => {
+      const c = data.percentage
+      this.b = Number(c)*100
+      console.log(this.b)
+    });
+
     this.chartOptions = {
-      series: [70],
-          chart: {
-          height: 350,
-          type: 'radialBar',
+      series: [this.b
+      ],
+      chart: {
+        height: 350,
+        type: 'radialBar',
+      },
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: '70%',
+          }
         },
-        plotOptions: {
-          radialBar: {
-            hollow: {
-              size: '70%',
-            }
-          },
-        }
+      }
     }
   }
 }
