@@ -8,18 +8,41 @@ import { Observable } from 'rxjs';
 export class PesoService {
   private http = inject(HttpClient)
 
+
+  //Weight
   getWeight(): Observable<any> {
     const a = this.http.get('http://localhost:3000/api/weight').pipe((res) => res)
     return a
   }
 
+  postWeight(peso: number): Observable<any> {
+    const a = this.http.post('http://localhost:3000/api/weight', {
+      "weight": peso
+    }).pipe((res) => res)
+    return a
+  }
+
+  //Daily
   startDay(): Observable<any> {
     const a = this.http.post('http://localhost:3000/api/daily', '').pipe((res) => res)
     return a
   }
 
+  //Morning
   getMorning(): Observable<any> {
     const a = this.http.get('http://localhost:3000/api/morning/present').pipe((res) => res)
+    return a
+  }
+
+  //Day
+  getDay(): Observable<any> {
+    const a = this.http.get('http://localhost:3000/api/day/present').pipe((res) => res)
+    return a
+  }
+
+  //Night
+  getNight(): Observable<any> {
+    const a = this.http.get('http://localhost:3000/api/night/present').pipe((res) => res)
     return a
   }
 

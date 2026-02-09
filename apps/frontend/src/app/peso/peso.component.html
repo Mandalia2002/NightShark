@@ -2,9 +2,9 @@
     <div class="Peso">
         <p>Tienes esto {{pesoactual}}</p>
         <p>Faltan esto {{pesofaltante}}</p>
-        <input type="text" class="InOut" id="peso">
+        <input type="number" class="InOut" [(ngModel)]="pesoPos">
         <hr>
-        <button>Ingresar</button>
+        <button (click)="actualizacion()">Ingresar</button>
     </div>
 
     <div class="Info">

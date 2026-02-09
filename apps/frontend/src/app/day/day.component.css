@@ -75,6 +75,8 @@ button:checked {
 
 .div7 {
     grid-area: 1 / 4 / 7 / 6;
+    justify-content: center;
+    align-items: center;
 }
 
 .div8 {

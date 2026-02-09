@@ -1,6 +1,19 @@
 <div class="parent">
     <div class="div1">
-        <img src="/assets/mundo.svg" alt="a">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [plotOptions]="chartOptions.plotOptions"
+            [stroke]="chartOptions.stroke" [fill]="chartOptions.fill"></apx-chart>
+    </div>
+    <div class="div3">
+        <select id="mood" class="InOut">
+            <option value="vacio">vacio</option>
+            <option value="feliz">feliz</option>
+            <option value="estresante">estresante</option>
+            <option value="emocionante">emocionante</option>
+            <option value="aburrido">aburrido</option>
+            <option value="tranquilo">tranquilo</option>
+            <option value="triste">triste</option>
+        </select>
+        <button type="submit">Enviar</button>
     </div>
     <div class="div2">
         <a href="/Morning"><img src="/assets/reborn.svg" alt=""></a>

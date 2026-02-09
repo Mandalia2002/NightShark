@@ -80,6 +80,8 @@ button:checked {
 
 .div8 {
     grid-area: 1 / 4 / 8 / 6;
+    justify-content: center;
+    align-items: center;
 }
 
 .div9 {
