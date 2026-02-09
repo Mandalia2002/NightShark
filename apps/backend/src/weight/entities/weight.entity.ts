@@ -19,4 +19,10 @@ export class Weight {
 
     @Column({type:'boolean', default:false})
     done: boolean
+
+    @Column({type: 'date'})
+    created_at: Date
+
+    @Column({type: 'int'})
+    worked_days: number
 }

@@ -4,6 +4,7 @@ import { UpdateWeightDto } from './dto/update-weight.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Weight } from './entities/weight.entity';
 import { Repository } from 'typeorm';
+import { truncate } from 'fs';
 
 @Injectable()
 export class WeightService {
@@ -14,7 +15,7 @@ export class WeightService {
   ) { }
 
   async create(createWeightDto: CreateWeightDto) {
-    const goal = await this.WeightRepository.find({ where: { done: false } })
+    const goal = await this.WeightRepository.findOne({ where: { done: false } })
     if (goal) return "There is a goal that isnt finished"
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
@@ -25,6 +26,8 @@ export class WeightService {
       ...createWeightDto,
       date_weight: dateNow,
       date_goal: dateThen,
+      created_at: dateNow,
+      worked_days: 0,
       done: false
     }
     const entry = this.WeightRepository.create(base)
@@ -34,13 +37,13 @@ export class WeightService {
 
   async findOne() {
     const dateNow = new Date()
-    dateNow.setHours(0,0,0,0)
+    dateNow.setHours(0, 0, 0, 0)
     const goal = await this.WeightRepository.findOne({ where: { done: false } })
     if (!goal) return "Not Found"
     const dateThen = new Date(goal.date_goal)
     const days = Math.abs(dateThen.getTime() - dateNow.getTime())
     const differenceInDays = Math.ceil(days / 86400000);
-    const weightLeft = goal.weight - goal.goal_weight  
+    const weightLeft = goal.weight - goal.goal_weight
     return {
       ...goal,
       days_left: differenceInDays,
@@ -59,8 +62,26 @@ export class WeightService {
     goal.date_weight = dateNow
     goal.done = done
     goal.weight = updateWeightDto.weight
+    goal.worked_days = goal.worked_days + 1
+    if (updateWeightDto.date_goal) {
+      const dateThen = new Date(updateWeightDto.date_goal)
+      dateThen.setHours(0, 0, 0, 0)
+      goal.date_goal = dateThen
+    }
 
     const assasas = await this.WeightRepository.save(goal)
+    return assasas
+  }
+
+  async reset(crear: CreateWeightDto) {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const goal = await this.WeightRepository.findOne({ where: { done: false } })
+    if (!goal) return 'Not Found'
+    let done = true
+    goal.done = done
+    const assasas = await this.WeightRepository.save(goal)
+
     return assasas
   }
 
