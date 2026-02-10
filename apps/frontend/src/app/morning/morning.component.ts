@@ -43,7 +43,7 @@ export type ChartOptions = {
   providers: [PesoService]
 })
 export class MorningComponent implements OnInit {
-  private morning = inject(PesoService)
+  private readonly morning = inject(PesoService)
   private readonly _formBuilder = inject(FormBuilder);
   readonly test = this._formBuilder.group({
     wakeUp: false,
@@ -56,16 +56,40 @@ export class MorningComponent implements OnInit {
 
   b: any
 
-
   @ViewChild("chart")
   chart!: ChartComponent;
   chartOptions!: Partial<ChartOptions>;
 
+  actualizar() {
+    const a = this.test.getRawValue()
+    const jsonTrabajado = {
+      "wakeUp": {
+        "value": a.wakeUp
+      },
+      "bed": {
+        "value": a.bed
+      },
+      "clean": {
+        "value": a.teethMorn
+      },
+      "skinMorn": {
+        "value": a.skinMorn
+      },
+      "body": {
+        "value": a.body
+      },
+      "teethMorn":{
+        "value": a.teethMorn
+      }
+    }
+    const c = this.morning.patchMorning(jsonTrabajado).subscribe()
+    return c
+  }
+
   ngOnInit() {
-      this.morning.getMorning().subscribe((data: any) => {
+    this.morning.getMorning().subscribe((data: any) => {
       const morning = data.percentage;
-      this.b = Number(morning)*100
-      console.log(this.b)
+      this.b = Math.round(Number(morning) * 100)
 
       this.chartOptions = {
         series: [this.b],
@@ -112,8 +136,8 @@ export class MorningComponent implements OnInit {
               name: {
                 show: false
               },
-              value:{
-                show:true,
+              value: {
+                show: true,
                 fontSize: "40px",
                 color: "#9f75cf"
               }
@@ -137,6 +161,8 @@ export class MorningComponent implements OnInit {
           lineCap: "round"
         }
       };
-  })
+    })
   }
+
+
 }

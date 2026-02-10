@@ -60,11 +60,37 @@ export class DayComponent implements OnInit{
 
   b:any
 
+    actualizar() {
+    const a = this.day.getRawValue()
+    const jsonTrabajado = {
+      "exercise": {
+        "value": a.exercise
+      },
+      "dailies": {
+        "value": a.dailies
+      },
+      "food": {
+        "value": a.food
+      },
+      "work": {
+        "value": a.work
+      },
+      "water": {
+        "value": a.water
+      },
+      "study":{
+        "value": a.study
+      }
+    }
+    const c = this.dia.patchDay(jsonTrabajado).subscribe()
+    return c
+  }
+
+
   ngOnInit() {
       this.dia.getDay().subscribe((data: any) => {
       const morning = data.percentage;
-      this.b = Number(morning)*100
-      console.log(this.b)
+      this.b = Math.round(Number(morning)*100)
 
       this.chartOptions = {
         series: [this.b],

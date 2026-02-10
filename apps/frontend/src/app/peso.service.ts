@@ -34,15 +34,30 @@ export class PesoService {
     return a
   }
 
+  patchMorning(info: any): Observable<any> {
+    const a = this.http.patch('http://localhost:3000/api/morning', info).pipe((res) => res)
+    return a
+  }
+
   //Day
   getDay(): Observable<any> {
     const a = this.http.get('http://localhost:3000/api/day/present').pipe((res) => res)
     return a
   }
 
+  patchDay(info: any): Observable<any> {
+    const a = this.http.patch('http://localhost:3000/api/day', info).pipe((res) => res)
+    return a
+  }
+
   //Night
   getNight(): Observable<any> {
     const a = this.http.get('http://localhost:3000/api/night/present').pipe((res) => res)
+    return a
+  }
+
+  patchNight(info: any): Observable<any> {
+    const a = this.http.patch('http://localhost:3000/api/night', info).pipe((res) => res)
     return a
   }
 

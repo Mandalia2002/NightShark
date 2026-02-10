@@ -60,11 +60,39 @@ export class NightComponent implements OnInit{
 
   b: any
 
+    actualizar() {
+    const a = this.night.getRawValue()
+    const jsonTrabajado = {
+      "cleanDesk": {
+        "value": a.cleanDesk
+      },
+      "skinNigh": {
+        "value": a.skinNigh
+      },
+      "teethNigh": {
+        "value": a.teethNigh
+      },
+      "hair": {
+        "value": a.hair
+      },
+      "read": {
+        "value": a.read
+      },
+      "prepare":{
+        "value": a.prepare
+      },
+      "clothes":{
+        "value": a.clothes
+      }
+    }
+    const c = this.noche.patchNight(jsonTrabajado).subscribe()
+    return c
+  }
+
   ngOnInit() {
     this.noche.getNight().subscribe((data: any) => {
       const morning = data.percentage;
-      this.b = Number(morning) * 100
-      console.log(this.b)
+      this.b = Math.round(Number(morning) * 100)
 
       this.chartOptions = {
         series: [this.b],
