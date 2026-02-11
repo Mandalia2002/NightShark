@@ -27,7 +27,7 @@ export class PesoService {
     return a
   }
 
-  patchWeight(peso: number): Observable<any> {
+  patchWeight(peso: any): Observable<any> {
     const a = this.http.patch('http://localhost:3000/api/weight', peso).pipe((res) => res)
     return a
   }

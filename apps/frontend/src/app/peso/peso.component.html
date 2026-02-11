@@ -29,7 +29,7 @@
     <dialog id="form-modal">
         <form method="dialog">
             <label for="peso">Peso Meta:</label>
-            <input type="text" [(ngModel)]="pesoMetaAct" class="InOut"><br><br>
+            <input type="text" class="InOut" [(ngModel)]="pesoMetaAct" [ngModelOptions]="{standalone:true}"><br><br>
             <button type="submit" (click)="actualizarDatos()">Subir</button>
             <button type="button" id="close-modal-btn" (click)="close1()">Close</button>
         </form>
@@ -38,7 +38,7 @@
     <dialog id="form-modal2">
         <form method="dialog">
             <label for="fecha">Fecha Meta:</label>
-            <input type="text" [(ngModel)]="fechaMetaAct" class="InOut"><br><br>
+            <input type="text" class="InOut" [(ngModel)]="fechaMetaAct" [ngModelOptions]="{standalone:true}" ><br><br>
             <button type="submit" (click)="actualizarDatos()">Subir</button>
             <button type="button" (click)="close2()">Close</button>
         </form>
@@ -47,10 +47,10 @@
     <dialog id="form-modal3">
         <form method="dialog">
             <label for="fecha">Fecha de Meta:</label>
-            <input type="text" [(ngModel)]="newDate"><br><br>
+            <input type="text" [(ngModel)]="newDate" [ngModelOptions]="{standalone:true}" class="InOut"><br><br>
             <label for="fecha">Peso Meta:</label>
-            <input type="text" [(ngModel)]="newWeight"><br><br>
-            <button type="submit" >Login</button>
+            <input type="text" [(ngModel)]="newWeight" [ngModelOptions]="{standalone:true}" class="InOut"><br><br>
+            <button type="submit" (click)="nuevaMeta()">Subir</button>
             <button type="button" (click)="close3()">Close</button>
         </form>
     </dialog>

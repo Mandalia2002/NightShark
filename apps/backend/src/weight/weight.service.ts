@@ -38,7 +38,9 @@ export class WeightService {
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
     const goal = await this.WeightRepository.findOne({ where: { done: false } })
-    if (!goal) return "Not Found"
+    if (!goal) return {
+      message: "Not Found"
+    }
     const dateThen = new Date(goal.date_goal)
     const days = Math.abs(dateThen.getTime() - dateNow.getTime())
     const differenceInDays = Math.ceil(days / 86400000);
@@ -105,8 +107,9 @@ export class WeightService {
     let done = true
     goal.done = done
     const assasas = await this.WeightRepository.save(goal)
+    const a = await this.create(crear)
 
-    return assasas
+    return a
   }
 
 }

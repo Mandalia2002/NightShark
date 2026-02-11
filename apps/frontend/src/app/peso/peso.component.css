@@ -19,8 +19,7 @@
     text-align: center;
 }
 
-.Info {
-}
+.Info {}
 
 .Progress {
     text-align: center;
@@ -46,9 +45,27 @@ button:checked {
 }
 
 .InOut {
-    border-radius: 10%;
+    border-radius: 5%;
     background-color: #8c80c4;
     border: none;
+}
+
+dialog {
+    backdrop-filter: blur(20px) brightness(85%); 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #3f324e;
+    background: linear-gradient(180deg, rgba(159, 134, 192, 0.18) 0%, rgba(75, 63, 90, 0.18) 66%);
+    box-shadow: #403253 1px 1px 5px;
+
+    button {
+        margin: 1vw;
+    }
+
+    input {
+        margin: 1vw
+    }
 }
 
 @media (max-width: 504px) {
@@ -192,7 +209,8 @@ button:checked {
         display: flex;
         justify-content: center;
         align-items: center;
-        button{
+
+        button {
             margin: 1vw;
         }
     }

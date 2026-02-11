@@ -30,10 +30,10 @@ export class PesoComponent implements OnInit {
   diasTrabajados: any;
 
   pesoPos: number = 0.00;
-  pesoMetaAct: any;
-  fechaMetaAct: any;
+  pesoMetaAct:any;
+  fechaMetaAct:any;
   newDate: any;
-  newWeight: any;
+  newWeight: number = 0;
 
   ngOnInit() {
     this.info.subscribe((data: any) => {
@@ -54,12 +54,13 @@ export class PesoComponent implements OnInit {
       this.diasfaltantes = differenceInDays
       this.diasTranscurridos = daysPassed
     });
-
-
   }
 
   actualizacion() {
-    const act = this.weight.patchWeight(this.pesoPos)
+    const a = {
+      weight: this.pesoPos
+    }
+    const act = this.weight.patchWeight(a)
     return act.subscribe((data: any) => { })
   }
 
@@ -75,10 +76,11 @@ export class PesoComponent implements OnInit {
 
   nuevaMeta() {
     const res = {
-      goal_weight: this.pesoMetaAct,
-      date_goal: this.fechaMetaAct,
+      goal_weight: this.newWeight,
+      date_goal: this.newDate,
       weight: 0.00
     }
+    console.log(res)
     const act = this.weight.newWeight(res)
     return act.subscribe((data: any) => { })
   }
