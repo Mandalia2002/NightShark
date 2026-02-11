@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { WeightService } from './weight.service';
 import { CreateWeightDto } from './dto/create-weight.dto';
 import { UpdateWeightDto } from './dto/update-weight.dto';
@@ -12,6 +12,11 @@ export class WeightController {
     return this.weightService.create(createWeightDto);
   }
 
+  @Post("/new")
+  new(@Body() createWeightDto: CreateWeightDto) {
+    return this.weightService.reset(createWeightDto);
+  }
+
   // @Get()
   // findAll() {
   //   return this.weightService.findAll();
@@ -23,6 +28,11 @@ export class WeightController {
   }
 
   @Patch()
+  advance(@Body() weight: number) {
+    return this.weightService.advance(weight);
+  }
+
+  @Put()
   update(@Body() updateWeightDto: UpdateWeightDto) {
     return this.weightService.update(updateWeightDto);
   }

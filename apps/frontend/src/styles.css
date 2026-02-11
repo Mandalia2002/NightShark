@@ -5,7 +5,7 @@
 }
 
 app-root{
-    backdrop-filter: blur(50%);
+    backdrop-filter: blur(50%); 
 }
 
 .background {
@@ -24,12 +24,19 @@ app-root{
     width: 20vmin;
     height: 20vmin;
     border-radius: 20vmin;
-    backface-visibility: hidden;
     position: absolute;
-    animation: move;
+    animation: move linear infinite;
     animation-duration: 5;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.35),
+        currentColor 40%,
+        rgba(0, 0, 0, 0.35) 85%
+    );
+
+        box-shadow: 
+        inset -1vmin -1vmin 2vmin rgba(0,0,0,0.4),
+        inset 1vmin 1vmin 2vmin rgba(255,255,255,0.15);
 }
 
 

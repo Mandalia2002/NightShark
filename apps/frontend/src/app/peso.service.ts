@@ -22,6 +22,21 @@ export class PesoService {
     return a
   }
 
+  newWeight(peso: any): Observable<any> {
+    const a = this.http.post('http://localhost:3000/api/weight/new', peso).pipe((res) => res)
+    return a
+  }
+
+  patchWeight(peso: number): Observable<any> {
+    const a = this.http.patch('http://localhost:3000/api/weight', peso).pipe((res) => res)
+    return a
+  }
+
+  putWeight(peso: any): Observable<any> {
+    const a = this.http.put('http://localhost:3000/api/weight', peso).pipe((res) => res)
+    return a
+  }
+
   //Daily
   startDay(): Observable<any> {
     const a = this.http.post('http://localhost:3000/api/daily', '').pipe((res) => res)

@@ -1,10 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateWeightDto } from './dto/create-weight.dto';
 import { UpdateWeightDto } from './dto/update-weight.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Weight } from './entities/weight.entity';
 import { Repository } from 'typeorm';
-import { truncate } from 'fs';
 
 @Injectable()
 export class WeightService {
@@ -51,26 +50,51 @@ export class WeightService {
     }
   }
 
+  async advance(info: any) {
+    try {
+      if (!info) throw new HttpException("Weight is missing", 400)
+      const weight = info.weight
+      const goal = await this.WeightRepository.findOne({ where: { done: false } })
+      if (!goal) return "Not Found"
+      const dateNow = new Date()
+      dateNow.setHours(0, 0, 0, 0)
+      const dateGoal = new Date(goal.date_weight+"T23:01:06.316Z")
+      dateGoal.setHours(0,0,0,0)
+      let days
+      let dat = goal.worked_days
+      if (dateGoal.getTime() === dateNow.getTime()) {
+        days = goal.date_weight
+      } else {
+        days = dateNow
+        dat = dat + 1
+      }
+      let done = false
+      if (weight === goal.goal_weight) done = true
+
+      goal.date_weight = days
+      goal.done = done
+      goal.weight = weight
+      goal.worked_days = dat
+
+      const assasas = await this.WeightRepository.save(goal)
+      return assasas
+    } catch (error) {
+      return {
+        message: "An Error has Ocurred",
+        error: error
+      }
+    }
+  }
+
   async update(updateWeightDto: UpdateWeightDto) {
-    const dateNow = new Date()
-    dateNow.setHours(0, 0, 0, 0)
     const goal = await this.WeightRepository.findOne({ where: { done: false } })
     if (!goal) return "Not Found"
-    let done = updateWeightDto.done
-    if (updateWeightDto.weight === goal.goal_weight) done = true
-
-    goal.date_weight = dateNow
-    goal.done = done
-    goal.weight = updateWeightDto.weight
-    goal.worked_days = goal.worked_days + 1
-    if (updateWeightDto.date_goal) {
-      const dateThen = new Date(updateWeightDto.date_goal)
-      dateThen.setHours(0, 0, 0, 0)
-      goal.date_goal = dateThen
-    }
-
-    const assasas = await this.WeightRepository.save(goal)
-    return assasas
+    let dat 
+    if(updateWeightDto.date_goal) dat =  new Date(updateWeightDto.date_goal)
+    goal.date_goal = dat || goal.date_goal
+    goal.goal_weight = updateWeightDto.goal_weight || goal.goal_weight
+    const sas = await this.WeightRepository.save(goal)
+    return sas
   }
 
   async reset(crear: CreateWeightDto) {

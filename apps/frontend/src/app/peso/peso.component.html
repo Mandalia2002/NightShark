@@ -8,9 +8,9 @@
     </div>
 
     <div class="Info">
-        <p>Dias transcurridos: [Variable]</p>
+        <p>Dias transcurridos: {{diasTranscurridos}}</p>
         <hr>
-        <p>Dias Trabajados: [Variable]</p>
+        <p>Dias Trabajados: {{diasTrabajados}}</p>
         <hr>
         <p>Dias Faltantes: {{diasfaltantes}}</p>
     </div>
@@ -21,8 +21,37 @@
     </div>
 
     <div class="Extra">
-        <button>Cambiar Peso</button>
-        <button>Cambiar Fecha</button>
-        <button>Reinicio</button>
+        <button (click)="abrirPeso()">Cambiar Peso</button>
+        <button (click)="abrirFecha()">Cambiar Fecha</button>
+        <button (click)="reinicio()">Reinicio</button>
     </div>
+
+    <dialog id="form-modal">
+        <form method="dialog">
+            <label for="peso">Peso Meta:</label>
+            <input type="text" [(ngModel)]="pesoMetaAct" class="InOut"><br><br>
+            <button type="submit" (click)="actualizarDatos()">Subir</button>
+            <button type="button" id="close-modal-btn" (click)="close1()">Close</button>
+        </form>
+    </dialog>
+
+    <dialog id="form-modal2">
+        <form method="dialog">
+            <label for="fecha">Fecha Meta:</label>
+            <input type="text" [(ngModel)]="fechaMetaAct" class="InOut"><br><br>
+            <button type="submit" (click)="actualizarDatos()">Subir</button>
+            <button type="button" (click)="close2()">Close</button>
+        </form>
+    </dialog>
+
+    <dialog id="form-modal3">
+        <form method="dialog">
+            <label for="fecha">Fecha de Meta:</label>
+            <input type="text" [(ngModel)]="newDate"><br><br>
+            <label for="fecha">Peso Meta:</label>
+            <input type="text" [(ngModel)]="newWeight"><br><br>
+            <button type="submit" >Login</button>
+            <button type="button" (click)="close3()">Close</button>
+        </form>
+    </dialog>
 </div>
