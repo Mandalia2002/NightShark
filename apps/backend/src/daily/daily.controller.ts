@@ -21,10 +21,10 @@ export class DailyController {
   //   return this.dailyService.findOne(+id);
   // }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateDailyDto: UpdateDailyDto) {
-  //   return this.dailyService.update(+id, updateDailyDto);
-  // }
+  @Patch()
+  update(@Body() updateDailyDto: UpdateDailyDto) {
+    return this.dailyService.update(updateDailyDto);
+  }
 
   // @Delete(':id')
   // remove(@Param('id') id: string) {

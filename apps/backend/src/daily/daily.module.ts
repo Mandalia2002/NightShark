@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { DailyService } from './daily.service';
 import { DailyController } from './daily.controller';
 import { Daily } from './entities/daily.entity';
@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { HabitModule } from 'src/habit/habit.module';
 
 @Module({
-  imports:[
+  imports: [
     TypeOrmModule.forFeature([Daily]),
     HabitModule,
   ],
@@ -14,4 +14,4 @@ import { HabitModule } from 'src/habit/habit.module';
   providers: [DailyService],
   exports: [TypeOrmModule, DailyService]
 })
-export class DailyModule {}
+export class DailyModule { }

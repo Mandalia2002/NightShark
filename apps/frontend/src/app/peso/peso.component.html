@@ -8,16 +8,15 @@
     </div>
 
     <div class="Info">
+        <p>Peso Meta: {{pesoMeta}}</p>
+        <hr>
+        <p>Fecha Limite: {{fechaMeta}}</p>
+        <hr>
         <p>Dias transcurridos: {{diasTranscurridos}}</p>
         <hr>
         <p>Dias Trabajados: {{diasTrabajados}}</p>
         <hr>
         <p>Dias Faltantes: {{diasfaltantes}}</p>
-    </div>
-    <div class="Progress">
-        <div class="barra">
-            <div class="progreso" [ngStyle]="{height: peso + '%'}"></div>
-        </div>
     </div>
 
     <div class="Extra">
@@ -38,7 +37,7 @@
     <dialog id="form-modal2">
         <form method="dialog">
             <label for="fecha">Fecha Meta:</label>
-            <input type="text" class="InOut" [(ngModel)]="fechaMetaAct" [ngModelOptions]="{standalone:true}" ><br><br>
+            <input type="text" class="InOut" [(ngModel)]="fechaMetaAct" [ngModelOptions]="{standalone:true}"><br><br>
             <button type="submit" (click)="actualizarDatos()">Subir</button>
             <button type="button" (click)="close2()">Close</button>
         </form>

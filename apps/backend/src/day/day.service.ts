@@ -1,15 +1,18 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { forwardRef, HttpException, Inject, Injectable } from '@nestjs/common';
 import { UpdateDayDto } from './dto/update-day.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Day } from './entities/day.entity';
 import { Repository } from 'typeorm';
+import { HabitService } from 'src/habit/habit.service';
 
 @Injectable()
 export class DayService {
 
   constructor(
     @InjectRepository(Day)
-    private readonly DayRepository: Repository<Day>
+    private readonly DayRepository: Repository<Day>,
+    @Inject(forwardRef(() => HabitService))
+    private readonly Day: HabitService,
   ) { }
 
   async createDay() {
@@ -85,6 +88,7 @@ export class DayService {
         percentage: nume
       }
       const morning = await this.DayRepository.update(dayExists, crotus)
+      this.Day.update()
       return morning
     } else {
       return { message: "No changes" }

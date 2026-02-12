@@ -1,14 +1,18 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { forwardRef, HttpException, Inject, Injectable } from '@nestjs/common';
 import { UpdateMorningDto } from './dto/update-morning.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Morning } from './entities/morning.entity';
 import { Repository } from 'typeorm';
+import { HabitService } from 'src/habit/habit.service';
 
 @Injectable()
 export class MorningService {
 
-  constructor(@InjectRepository(Morning)
-  private readonly MorningRepository: Repository<Morning>
+  constructor(
+    @InjectRepository(Morning)
+    private readonly MorningRepository: Repository<Morning>,
+    @Inject(forwardRef(() => HabitService))
+    private readonly Day: HabitService,
   ) { }
 
   async createMorning() {
@@ -48,7 +52,7 @@ export class MorningService {
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
     const morningExists = await this.MorningRepository.findOne({ where: { date: dateNow } })
-    if(!morningExists) throw new HttpException("Morning of this date:"+ dateNow + "does not exists",404);
+    if (!morningExists) throw new HttpException("Morning of this date:" + dateNow + "does not exists", 404);
     return morningExists
   }
 
@@ -73,7 +77,7 @@ export class MorningService {
     if (c.true != undefined || c.true != null) {
       let changes = Object.values(c.true)
       const d = changes.length
-      const nume: any = ((d * 100) / 6)/100
+      const nume: any = ((d * 100) / 6) / 100
       let crotus = {
         wakeUp: updateMorningDto.wakeUp.value || false,
         bed: updateMorningDto.bed.value || false,
@@ -84,6 +88,7 @@ export class MorningService {
         percentage: nume
       }
       const morning = await this.MorningRepository.update(morningExists, crotus)
+      this.Day.update()
       return morning
     } else {
       return { message: "No changes" }

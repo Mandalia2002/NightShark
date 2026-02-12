@@ -43,6 +43,11 @@ export class PesoService {
     return a
   }
 
+  updateMood(mood: any): Observable<any> {
+    const a = this.http.patch('http://localhost:3000/api/daily', mood).pipe((res) => res)
+    return a
+  }
+
   //Morning
   getMorning(): Observable<any> {
     const a = this.http.get('http://localhost:3000/api/morning/present').pipe((res) => res)
@@ -73,6 +78,12 @@ export class PesoService {
 
   patchNight(info: any): Observable<any> {
     const a = this.http.patch('http://localhost:3000/api/night', info).pipe((res) => res)
+    return a
+  }
+
+  //Records
+  getMonth(): Observable<any> {
+    const a = this.http.get('http://localhost:3000/api/records/month').pipe((res) => res)
     return a
   }
 

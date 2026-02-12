@@ -134,8 +134,15 @@ export class RecordsService {
     return `This action returns all records`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} record`;
+  async findOne() {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const a = dateNow.toLocaleDateString('default', { month: '2-digit' })
+    const monthReport = await this.RecordRepository.findOne({where:{date_month: a}})
+    if(!monthReport) return {
+      message: "There isnt a report for this month"
+    }
+    return monthReport
   }
 
   update(id: number, updateRecordDto: UpdateRecordDto) {

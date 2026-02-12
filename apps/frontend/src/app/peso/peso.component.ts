@@ -1,9 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PesoService } from '../peso.service';
 import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-peso',
@@ -16,9 +15,7 @@ import { FormsModule } from '@angular/forms';
   providers: [PesoService]
 })
 export class PesoComponent implements OnInit {
-  private weight = inject(PesoService)
-
-  info = this.weight.getWeight()
+  private readonly weight = inject(PesoService)
 
   peso: any;
   pesoactual: any;
@@ -28,22 +25,25 @@ export class PesoComponent implements OnInit {
   fechaMeta: any;
   fechaCreacion: any;
   diasTrabajados: any;
+  pesoMeta: any;
 
   pesoPos: number = 0.00;
-  pesoMetaAct:any;
-  fechaMetaAct:any;
+  pesoMetaAct: any;
+  fechaMetaAct: any;
   newDate: any;
   newWeight: number = 0;
 
   ngOnInit() {
-    this.info.subscribe((data: any) => {
-      this.peso = data.weight;
+    this.weight.getWeight().subscribe((data: any) => {
+      this.peso = Number(data.weight);
       this.pesoactual = data.weight
       this.pesofaltante = data.weight_left
       this.fechaMeta = data.date_goal
       this.diasTrabajados = data.worked_days
       this.fechaCreacion = data.created_at
+      this.pesoMeta = data.goal_weight
 
+      console.log(this.peso)
       const a = new Date();
       const b = new Date(this.fechaMeta)
       const c = new Date(this.fechaCreacion)
@@ -64,7 +64,6 @@ export class PesoComponent implements OnInit {
     return act.subscribe((data: any) => { })
   }
 
-
   actualizarDatos() {
     const res = {
       goal_weight: this.pesoMetaAct,
@@ -84,7 +83,6 @@ export class PesoComponent implements OnInit {
     const act = this.weight.newWeight(res)
     return act.subscribe((data: any) => { })
   }
-
 
   abrirPeso() {
     const formModal = document.getElementById('form-modal') as HTMLDialogElement;

@@ -13,6 +13,7 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -30,7 +31,9 @@ export type ChartOptions = {
 @Component({
   selector: 'app-inicio',
   imports: [
-    ChartComponent
+    ChartComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
@@ -49,10 +52,11 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     this.day.startDay().subscribe((data: any) => {
-      const habit = data.habit;
+      const dat = data.habit;
+      const habit = Math.round(dat.percentage)
 
       this.chartOptions = {
-        series: [habit.percentage],
+        series: [habit],
         chart: {
           height: 350,
           type: "radialBar",
@@ -96,8 +100,8 @@ export class InicioComponent implements OnInit {
               name: {
                 show: false
               },
-              value:{
-                show:true,
+              value: {
+                show: true,
                 fontSize: "40px",
                 color: "#9f75cf"
               }
@@ -122,5 +126,14 @@ export class InicioComponent implements OnInit {
         }
       };
     });
+  }
+
+  boton(){
+    const dat = document.getElementById('mood') as HTMLSelectElement
+    const val = {
+      mood: dat.value
+    }
+    const b = this.day.updateMood(val).subscribe((data: any) => {})
+    return b
   }
 }

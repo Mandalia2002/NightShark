@@ -1,16 +1,19 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { forwardRef, HttpException, Inject, Injectable } from '@nestjs/common';
 import { CreateNightDto } from './dto/create-night.dto';
 import { UpdateNightDto } from './dto/update-night.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Night } from './entities/night.entity';
 import { Repository } from 'typeorm';
+import { HabitService } from 'src/habit/habit.service';
 
 @Injectable()
 export class NightService {
 
   constructor(
     @InjectRepository(Night)
-    private readonly NightRepository: Repository<Night>
+    private readonly NightRepository: Repository<Night>,
+    @Inject(forwardRef(() => HabitService))
+    private readonly Day: HabitService,
   ) { }
 
   async createNight() {
@@ -76,7 +79,7 @@ export class NightService {
     if (c.true != undefined || c.true != null) {
       let changes = Object.values(c.true)
       const d = changes.length
-      const nume: any = ((d * 100) / 7)/100
+      const nume: any = ((d * 100) / 7) / 100
       let crotus = {
         cleanDesk: updateNightDto.cleanDesk.value || false,
         skinNigh: updateNightDto.skinNigh.value || false,
@@ -88,6 +91,7 @@ export class NightService {
         percentage: nume
       }
       const night = await this.NightRepository.update(nightExists, crotus)
+      this.Day.update()
       return night
     } else {
       return { message: "No changes" }

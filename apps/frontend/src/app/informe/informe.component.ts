@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -12,6 +12,7 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
+import { PesoService } from '../peso.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -30,15 +31,168 @@ export type ChartOptions = {
   selector: 'app-informe',
   imports: [ChartComponent],
   templateUrl: './informe.component.html',
+  providers:[PesoService],
   styleUrl: './informe.component.css'
 })
 export class InformeComponent implements OnInit {
+  private readonly info = inject(PesoService)
 
   @ViewChild("chart")
   chart!: ChartComponent;
-  chartOptions!: Partial<ChartOptions>;
+  chartOptionsMorning!: Partial<ChartOptions>;
+  chartOptionsDay!: Partial<ChartOptions>;
+  chartOptionsNight!: Partial<ChartOptions>;
+
+  habitsMorning: any;
+  habitsDay: any;
+  habitsNight: any;
+
+
   ngOnInit() {
-    this.chartOptions = {
+    this.info.getMonth().subscribe((data)=>{
+    })
+
+    this.chartOptionsMorning = {
+      series: [70],
+      chart: {
+        height: 350,
+        type: "radialBar",
+        toolbar: {
+          show: false
+        }
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: -135,
+          endAngle: 225,
+          hollow: {
+            margin: 0,
+            size: "70%",
+            background: "#ffffff00",
+            image: undefined,
+            position: "front",
+            dropShadow: {
+              enabled: true,
+              top: 3,
+              left: 0,
+              blur: 4,
+              opacity: 0.24
+            }
+          },
+          track: {
+            background: "#4a3f5f",
+            strokeWidth: "67%",
+            margin: 0, // margin is in pixels
+            dropShadow: {
+              enabled: true,
+              top: -3,
+              left: 0,
+              blur: 4,
+              opacity: 0.15
+            }
+          },
+
+          dataLabels: {
+            show: true,
+            name: {
+              show: false
+            },
+            value: {
+              show: true,
+              fontSize: "40px",
+              color: "#9f75cf"
+            }
+          }
+        }
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          type: "horizontal",
+          shadeIntensity: 0.5,
+          gradientToColors: ["#7853b4"],
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100]
+        }
+      },
+      stroke: {
+        lineCap: "round"
+      }
+    };
+    this.chartOptionsDay = {
+      series: [70],
+      chart: {
+        height: 350,
+        type: "radialBar",
+        toolbar: {
+          show: false
+        }
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: -135,
+          endAngle: 225,
+          hollow: {
+            margin: 0,
+            size: "70%",
+            background: "#ffffff00",
+            image: undefined,
+            position: "front",
+            dropShadow: {
+              enabled: true,
+              top: 3,
+              left: 0,
+              blur: 4,
+              opacity: 0.24
+            }
+          },
+          track: {
+            background: "#4a3f5f",
+            strokeWidth: "67%",
+            margin: 0, // margin is in pixels
+            dropShadow: {
+              enabled: true,
+              top: -3,
+              left: 0,
+              blur: 4,
+              opacity: 0.15
+            }
+          },
+
+          dataLabels: {
+            show: true,
+            name: {
+              show: false
+            },
+            value: {
+              show: true,
+              fontSize: "40px",
+              color: "#9f75cf"
+            }
+          }
+        }
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          type: "horizontal",
+          shadeIntensity: 0.5,
+          gradientToColors: ["#7853b4"],
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100]
+        }
+      },
+      stroke: {
+        lineCap: "round"
+      }
+    };
+    this.chartOptionsNight = {
       series: [70],
       chart: {
         height: 350,

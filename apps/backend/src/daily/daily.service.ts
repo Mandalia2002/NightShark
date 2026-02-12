@@ -3,6 +3,7 @@ import { Daily } from './entities/daily.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { HabitService } from 'src/habit/habit.service';
+import { UpdateDailyDto } from './dto/update-daily.dto';
 
 @Injectable()
 export class DailyService {
@@ -62,9 +63,17 @@ export class DailyService {
   //   return `This action returns a #${id} daily`;
   // }
 
-  // update(id: number, updateDailyDto: UpdateDailyDto) {
-  //   return `This action updates a #${id} daily`;
-  // }
+  async update(updateDailyDto: UpdateDailyDto) {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const sun = await this.DailyRepository.findOne({ where: { date: dateNow } })
+    if (!sun) return {
+      message: "Not Found"
+    }
+    sun.mood = updateDailyDto.mood || 'vacio'
+    const a = this.DailyRepository.save(sun)
+    return a
+  }
 
   // remove(id: number) {
   //   return `This action removes a #${id} daily`;
