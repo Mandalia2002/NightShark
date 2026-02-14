@@ -31,7 +31,7 @@ export type ChartOptions = {
   selector: 'app-informe',
   imports: [ChartComponent],
   templateUrl: './informe.component.html',
-  providers:[PesoService],
+  providers: [PesoService],
   styleUrl: './informe.component.css'
 })
 export class InformeComponent implements OnInit {
@@ -39,228 +39,104 @@ export class InformeComponent implements OnInit {
 
   @ViewChild("chart")
   chart!: ChartComponent;
-  chartOptionsMorning!: Partial<ChartOptions>;
-  chartOptionsDay!: Partial<ChartOptions>;
-  chartOptionsNight!: Partial<ChartOptions>;
+  chartOptions!: Partial<ChartOptions>;
 
   habitsMorning: any;
   habitsDay: any;
   habitsNight: any;
+  mood_statistics: any;
+
+  percentage: number = 0;
 
 
   ngOnInit() {
-    this.info.getMonth().subscribe((data)=>{
+    this.info.getMonth().subscribe((data) => {
+      const a = JSON.stringify(data.habits_improve)
+      const b = JSON.parse(a)
+      console.log(b)
+      this.habitsMorning = Object.getOwnPropertyNames(b.morning)
+      this.habitsDay = Object.getOwnPropertyNames(b.day)
+      this.habitsNight = Object.getOwnPropertyNames(b.night)
+      this.mood_statistics = Object.getOwnPropertyNames(data.mood_statistics)
+      this.percentage = Math.round(data.percentages)
+      this.chartOptions = {
+        series: [this.percentage],
+        chart: {
+          height: 350,
+          type: "radialBar",
+          toolbar: {
+            show: false
+          }
+        },
+        plotOptions: {
+          radialBar: {
+            startAngle: -135,
+            endAngle: 225,
+            hollow: {
+              margin: 0,
+              size: "70%",
+              background: "#ffffff00",
+              image: undefined,
+              position: "front",
+              dropShadow: {
+                enabled: true,
+                top: 3,
+                left: 0,
+                blur: 4,
+                opacity: 0.24
+              }
+            },
+            track: {
+              background: "#4a3f5f",
+              strokeWidth: "67%",
+              margin: 0, // margin is in pixels
+              dropShadow: {
+                enabled: true,
+                top: -3,
+                left: 0,
+                blur: 4,
+                opacity: 0.15
+              }
+            },
+
+            dataLabels: {
+              show: true,
+              name: {
+                show: false
+              },
+              value: {
+                show: true,
+                fontSize: "40px",
+                color: "#9f75cf"
+              }
+            }
+          }
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            type: "horizontal",
+            shadeIntensity: 0.5,
+            gradientToColors: ["#7853b4"],
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100]
+          }
+        },
+        stroke: {
+          lineCap: "round"
+        }
+      };
     })
+  }
 
-    this.chartOptionsMorning = {
-      series: [70],
-      chart: {
-        height: 350,
-        type: "radialBar",
-        toolbar: {
-          show: false
-        }
-      },
-      plotOptions: {
-        radialBar: {
-          startAngle: -135,
-          endAngle: 225,
-          hollow: {
-            margin: 0,
-            size: "70%",
-            background: "#ffffff00",
-            image: undefined,
-            position: "front",
-            dropShadow: {
-              enabled: true,
-              top: 3,
-              left: 0,
-              blur: 4,
-              opacity: 0.24
-            }
-          },
-          track: {
-            background: "#4a3f5f",
-            strokeWidth: "67%",
-            margin: 0, // margin is in pixels
-            dropShadow: {
-              enabled: true,
-              top: -3,
-              left: 0,
-              blur: 4,
-              opacity: 0.15
-            }
-          },
+  monthly(){
+    this.info.newMonth().subscribe((data)=>{})
+  }
 
-          dataLabels: {
-            show: true,
-            name: {
-              show: false
-            },
-            value: {
-              show: true,
-              fontSize: "40px",
-              color: "#9f75cf"
-            }
-          }
-        }
-      },
-      fill: {
-        type: "gradient",
-        gradient: {
-          shade: "dark",
-          type: "horizontal",
-          shadeIntensity: 0.5,
-          gradientToColors: ["#7853b4"],
-          inverseColors: true,
-          opacityFrom: 1,
-          opacityTo: 1,
-          stops: [0, 100]
-        }
-      },
-      stroke: {
-        lineCap: "round"
-      }
-    };
-    this.chartOptionsDay = {
-      series: [70],
-      chart: {
-        height: 350,
-        type: "radialBar",
-        toolbar: {
-          show: false
-        }
-      },
-      plotOptions: {
-        radialBar: {
-          startAngle: -135,
-          endAngle: 225,
-          hollow: {
-            margin: 0,
-            size: "70%",
-            background: "#ffffff00",
-            image: undefined,
-            position: "front",
-            dropShadow: {
-              enabled: true,
-              top: 3,
-              left: 0,
-              blur: 4,
-              opacity: 0.24
-            }
-          },
-          track: {
-            background: "#4a3f5f",
-            strokeWidth: "67%",
-            margin: 0, // margin is in pixels
-            dropShadow: {
-              enabled: true,
-              top: -3,
-              left: 0,
-              blur: 4,
-              opacity: 0.15
-            }
-          },
-
-          dataLabels: {
-            show: true,
-            name: {
-              show: false
-            },
-            value: {
-              show: true,
-              fontSize: "40px",
-              color: "#9f75cf"
-            }
-          }
-        }
-      },
-      fill: {
-        type: "gradient",
-        gradient: {
-          shade: "dark",
-          type: "horizontal",
-          shadeIntensity: 0.5,
-          gradientToColors: ["#7853b4"],
-          inverseColors: true,
-          opacityFrom: 1,
-          opacityTo: 1,
-          stops: [0, 100]
-        }
-      },
-      stroke: {
-        lineCap: "round"
-      }
-    };
-    this.chartOptionsNight = {
-      series: [70],
-      chart: {
-        height: 350,
-        type: "radialBar",
-        toolbar: {
-          show: false
-        }
-      },
-      plotOptions: {
-        radialBar: {
-          startAngle: -135,
-          endAngle: 225,
-          hollow: {
-            margin: 0,
-            size: "70%",
-            background: "#ffffff00",
-            image: undefined,
-            position: "front",
-            dropShadow: {
-              enabled: true,
-              top: 3,
-              left: 0,
-              blur: 4,
-              opacity: 0.24
-            }
-          },
-          track: {
-            background: "#4a3f5f",
-            strokeWidth: "67%",
-            margin: 0, // margin is in pixels
-            dropShadow: {
-              enabled: true,
-              top: -3,
-              left: 0,
-              blur: 4,
-              opacity: 0.15
-            }
-          },
-
-          dataLabels: {
-            show: true,
-            name: {
-              show: false
-            },
-            value: {
-              show: true,
-              fontSize: "40px",
-              color: "#9f75cf"
-            }
-          }
-        }
-      },
-      fill: {
-        type: "gradient",
-        gradient: {
-          shade: "dark",
-          type: "horizontal",
-          shadeIntensity: 0.5,
-          gradientToColors: ["#7853b4"],
-          inverseColors: true,
-          opacityFrom: 1,
-          opacityTo: 1,
-          stops: [0, 100]
-        }
-      },
-      stroke: {
-        lineCap: "round"
-      }
-    };
+  yearly(){
+    this.info.newYear().subscribe((data)=>{})
   }
 }

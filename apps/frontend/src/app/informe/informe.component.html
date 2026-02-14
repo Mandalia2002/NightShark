@@ -1,40 +1,26 @@
 <div class="parent">
     <div class="div1">
-        <div class="graph">
-            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
-                [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
-                [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
-                [stroke]="chartOptions.stroke" [xaxis]="chartOptions.xaxis"></apx-chart>
-        </div>
-        <div class="data">
-            Habito a mejorar: variable
-        </div>
+        <p>Estados de Animo:</p>
+        <p>{{mood_statistics}}</p>
+        <hr>
+        <p>Habitos a mejorar</p>
+        <p>Rutina Mañana: {{habitsMorning}}</p>
+        <hr>
+        <p>Rutina Dia: {{habitsDay}}</p>
+        <hr>
+        <p>Rutina Mañana: {{habitsNight}}</p>
     </div>
     <div class="div2">
-        <div class="graph">
+        <p>En promedio haz estado cumpliendo tus rutinas:</p>
             <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
                 [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
-                [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
-                [stroke]="chartOptions.stroke" [xaxis]="chartOptions.xaxis"></apx-chart>
-        </div>
-        <div class="data">
-            Habito a mejorar: variable
-        </div>
+                [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend"
+                [fill]="chartOptions.fill" [stroke]="chartOptions.stroke"
+                [xaxis]="chartOptions.xaxis"></apx-chart>
+        <p>¡Siempre se puede mejorar, arriba los animos!</p>
     </div>
     <div class="div3">
-        <div class="graph">
-            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
-                [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
-                [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
-                [stroke]="chartOptions.stroke" [xaxis]="chartOptions.xaxis"></apx-chart>
-        </div>
-        <div class="data">
-            Habito a mejorar: variable
-        </div>
-    </div>
-    <div class="div4">
-        Dias pasados:
-        <button>Generar Informe</button>
-        <button></button>
+        <button (click)="monthly()">Mensual</button>
+        <button (click)="yearly()">Anual</button>
     </div>
 </div>
