@@ -16,14 +16,14 @@ export class RecordsController {
     return this.recordsService.createYearReport();
   }
 
-  @Get()
+  @Get('/year')
   findAll() {
-    return this.recordsService.findAll();
+    return this.recordsService.findOneYear();
   }
 
   @Get('/month')
   findOne() {
-    return this.recordsService.findOne();
+    return this.recordsService.findOneMonth();
   }
 
   @Patch(':id')

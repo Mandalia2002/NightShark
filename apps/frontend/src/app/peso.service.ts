@@ -87,6 +87,11 @@ export class PesoService {
     return a
   }
 
+  getYear(): Observable<any> {
+    const a = this.http.get('http://localhost:3000/api/records/year').pipe((res) => res)
+    return a
+  }
+
   newMonth(): Observable<any> {
     const a = this.http.post('http://localhost:3000/api/records/month', '').pipe((res) => res)
     return a

@@ -195,11 +195,18 @@ export class RecordsService {
     return recordMonth
   }
 
-  findAll() {
-    return `This action returns all records`;
+  async findOneYear() {
+    const dateNow = new Date()
+    dateNow.setHours(0, 0, 0, 0)
+    const a = dateNow.toLocaleDateString('default', { year: 'numeric' })
+    const monthReport = await this.RecordRepository.findOne({ where: { date_month:'año', year: Number(a) } })
+    if (!monthReport) return {
+      message: "There isnt a report for this year"
+    }
+    return monthReport
   }
 
-  async findOne() {
+  async findOneMonth() {
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
     const a = dateNow.toLocaleDateString('default', { month: '2-digit' })

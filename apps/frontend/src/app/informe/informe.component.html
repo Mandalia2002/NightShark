@@ -19,8 +19,30 @@
                 [xaxis]="chartOptions.xaxis"></apx-chart>
         <p>¡Siempre se puede mejorar, arriba los animos!</p>
     </div>
+
     <div class="div3">
         <button (click)="monthly()">Mensual</button>
         <button (click)="yearly()">Anual</button>
+    </div>
+
+        <div class="div4">
+        <p>Estados de Animo:</p>
+        <p>{{Yearmood_statistics}}</p>
+        <hr>
+        <p>Habitos a mejorar</p>
+        <p>Rutina Mañana: {{YearhabitsMorning}}</p>
+        <hr>
+        <p>Rutina Dia: {{YearhabitsDay}}</p>
+        <hr>
+        <p>Rutina Mañana: {{YearhabitsNight}}</p>
+    </div>
+    <div class="div5">
+        <p>En promedio haz estado cumpliendo tus rutinas:</p>
+            <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart"
+                [dataLabels]="chartOptions2.dataLabels" [plotOptions]="chartOptions2.plotOptions"
+                [yaxis]="chartOptions2.yaxis" [legend]="chartOptions2.legend"
+                [fill]="chartOptions2.fill" [stroke]="chartOptions2.stroke"
+                [xaxis]="chartOptions2.xaxis"></apx-chart>
+        <p>¡Siempre se puede mejorar, arriba los animos!</p>
     </div>
 </div>
