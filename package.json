@@ -1,14 +1,23 @@
 {
   "name": "NightlyShark",
+  "description": "Daily Habit, Weight and Mood Tracker",
+  "author": {
+    "name": "Mandalia Garciel"
+  },
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "front:dev": "cd apps/frontend && npm run ng serve",
-    "front:build": "cd apps/frontend && ng build",
+    "front:build": "cd apps/frontend && npm run ng build",
     "back:dev": "cd apps/backend && npm run start:dev",
     "back:build": "cd apps/backend && npm run build",
-    "dev": "concurrently \"npm run back:dev\" \"npm run front:dev\""
+    "dev": "concurrently \"npm run back:dev\" \"npm run front:dev\"",
+    "build": "concurrently \"npm run back:build\" \"npm run front:build\""
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "electron": "^40.4.1",
+    "electron-builder": "^26.7.0",
+    "wait-on": "^9.0.4"
   }
 }

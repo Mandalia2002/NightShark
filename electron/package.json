@@ -1,0 +1,12 @@
+{
+  "appId": "com.nightly.app",
+  "productName": "NightlyShark",
+  "files": [
+    "electron/**/*",
+    "apps/frontend/dist/**/*",
+    "apps/backend/dist/**/*"
+  ],
+  "win": {
+    "target": "nsis"
+  }
+}
