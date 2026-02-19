@@ -7,7 +7,7 @@ export const databaseProviders = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'postgres',
-        url: process.env.POSTGRES_URL,
+        url: process.env.POSTGRES_URL_NON_POOLING,
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true,
         ssl: {

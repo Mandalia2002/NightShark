@@ -22,7 +22,7 @@ import { RecordsModule } from './records/records.module';
     DatabaseModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.POSTGRES_URL,
+      url: process.env.POSTGRES_URL_NON_POOLING,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
