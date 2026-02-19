@@ -25,7 +25,15 @@ import { RecordsModule } from './records/records.module';
       url: process.env.POSTGRES_URL,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-      autoLoadEntities: true
+      autoLoadEntities: true,
+      ssl: {
+        rejectUnauthorized: false
+      },
+      extra: {
+        ssl: {
+          rejectUnauthorized: false
+        }
+      }
     }),
     RecordsModule],
   controllers: [AppController],

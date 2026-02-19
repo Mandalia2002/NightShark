@@ -9,7 +9,15 @@ export const databaseProviders = [
         type: 'postgres',
         url: process.env.POSTGRES_URL,
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true
+        synchronize: true,
+        ssl: {
+          rejectUnauthorized: false
+        },
+        extra: {
+          ssl: {
+            rejectUnauthorized: false
+          }
+        }
         // type: 'mysql',
         // host: 'localhost',
         // port: 3306,
