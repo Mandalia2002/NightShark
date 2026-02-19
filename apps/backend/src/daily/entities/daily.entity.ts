@@ -1,4 +1,4 @@
-import { Habit } from "src/habit/entities/habit.entity";
+import { Habit } from "../../habit/entities/habit.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
 
 export enum Mood {

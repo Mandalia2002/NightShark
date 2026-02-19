@@ -3,7 +3,7 @@ import { DailyService } from './daily.service';
 import { DailyController } from './daily.controller';
 import { Daily } from './entities/daily.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { HabitModule } from 'src/habit/habit.module';
+import { HabitModule } from '../habit/habit.module';
 
 @Module({
   imports: [

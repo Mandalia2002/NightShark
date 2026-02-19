@@ -3,7 +3,7 @@ import { MorningService } from './morning.service';
 import { MorningController } from './morning.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Morning } from './entities/morning.entity';
-import { HabitModule } from 'src/habit/habit.module';
+import { HabitModule } from '../habit/habit.module';
 
 @Module({
   imports:[

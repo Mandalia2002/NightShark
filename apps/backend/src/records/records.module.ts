@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { RecordsService } from './records.service';
 import { RecordsController } from './records.controller';
-import { DailyModule } from 'src/daily/daily.module';
+import { DailyModule } from '../daily/daily.module';
 import { Record } from './entities/record.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 

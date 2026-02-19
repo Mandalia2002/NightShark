@@ -3,7 +3,7 @@ import { UpdateMorningDto } from './dto/update-morning.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Morning } from './entities/morning.entity';
 import { Repository } from 'typeorm';
-import { HabitService } from 'src/habit/habit.service';
+import { HabitService } from '../habit/habit.service';
 
 @Injectable()
 export class MorningService {

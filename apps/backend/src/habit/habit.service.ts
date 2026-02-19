@@ -2,9 +2,9 @@ import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Habit } from './entities/habit.entity';
 import { Repository } from 'typeorm';
-import { MorningService } from 'src/morning/morning.service';
-import { DayService } from 'src/day/day.service';
-import { NightService } from 'src/night/night.service';
+import { MorningService } from '../morning/morning.service';
+import { DayService } from '../day/day.service';
+import { NightService } from '../night/night.service';
 
 @Injectable()
 export class HabitService {

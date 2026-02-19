@@ -3,9 +3,9 @@ import { HabitService } from './habit.service';
 import { HabitController } from './habit.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Habit } from './entities/habit.entity';
-import { MorningModule } from 'src/morning/morning.module';
-import { DayModule } from 'src/day/day.module';
-import { NightModule } from 'src/night/night.module';
+import { MorningModule } from '../morning/morning.module';
+import { DayModule } from '../day/day.module';
+import { NightModule } from '../night/night.module';
 
 @Module({
   imports:[

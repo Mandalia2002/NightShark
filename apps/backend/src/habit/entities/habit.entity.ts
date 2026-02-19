@@ -1,4 +1,4 @@
-import { Daily } from "src/daily/entities/daily.entity";
+import { Daily } from "../../daily/entities/daily.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm";
 
 @Entity()

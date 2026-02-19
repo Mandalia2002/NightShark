@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UpdateRecordDto } from './dto/update-record.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DailyService } from 'src/daily/daily.service';
+import { DailyService } from '../daily/daily.service';
 import { Not, Repository } from 'typeorm';
 import { Record } from './entities/record.entity';
 

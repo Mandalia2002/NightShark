@@ -4,7 +4,7 @@ import { UpdateNightDto } from './dto/update-night.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Night } from './entities/night.entity';
 import { Repository } from 'typeorm';
-import { HabitService } from 'src/habit/habit.service';
+import { HabitService } from '../habit/habit.service';
 
 @Injectable()
 export class NightService {

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Daily } from './entities/daily.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { HabitService } from 'src/habit/habit.service';
+import { HabitService } from '../habit/habit.service';
 import { UpdateDailyDto } from './dto/update-daily.dto';
 
 @Injectable()
