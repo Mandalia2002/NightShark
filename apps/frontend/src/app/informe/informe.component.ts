@@ -13,6 +13,7 @@ import {
   ApexTooltip
 } from "ng-apexcharts";
 import { PesoService } from '../peso.service';
+import { interval } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -41,7 +42,7 @@ export class InformeComponent implements OnInit {
   chart!: ChartComponent;
   chartOptions!: Partial<ChartOptions>;
 
-    @ViewChild("chart")
+  @ViewChild("chart")
   chart2!: ChartComponent;
   chartOptions2!: Partial<ChartOptions>;
 
@@ -61,6 +62,12 @@ export class InformeComponent implements OnInit {
 
 
   ngOnInit() {
+    let nom
+    nom = interval(1500).subscribe(
+      (val) => { this.informeData() });
+  }
+
+  informeData() {
     this.info.getMonth().subscribe((data) => {
       const a = JSON.stringify(data.habits_improve)
       const b = JSON.parse(a)

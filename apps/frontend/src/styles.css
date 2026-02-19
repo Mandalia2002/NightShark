@@ -4,6 +4,12 @@
     }
 }
 
+::view-transition-old(count),
+::view-transition-new(count) {
+  animation-duration: 150ms;
+  animation-name: -ua-view-transition-fade-in;
+}
+
 app-root{
     backdrop-filter: blur(50%); 
 }

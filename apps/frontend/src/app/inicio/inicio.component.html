@@ -16,8 +16,8 @@
         <button (click)="boton()">Enviar</button>
     </div>
     <div class="div2">
-        <a routerLink="Morning"><img src="assets/reborn.svg" alt=""></a>
-        <a routerLink="Day"><img src="assets/mensaje.svg" alt=""></a>
-        <a routerLink="Night"><img src="assets/ser.svg" alt=""></a>
+        <a [routerLink]="['../Morning']"><img src="assets/reborn.svg" alt=""></a>
+        <a [routerLink]="['../Day']"><img src="assets/mensaje.svg" alt=""></a>
+        <a [routerLink]="['../Night']"><img src="assets/ser.svg" alt=""></a>
     </div>
 </div>

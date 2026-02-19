@@ -2,10 +2,18 @@ const { app, BrowserWindow } = require('electron');
 const { spawn } = require('child_process');
 const path = require('path');
 
-let backendProcess;
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
+  app.quit();
+  return;
+}
+
+let win;
 
 function createWindow() {
-  const win = new BrowserWindow({
+  if (win) return;
+
+  win = new BrowserWindow({
     width: 1200,
     height: 800,
     webPreferences: {
@@ -15,23 +23,22 @@ function createWindow() {
     }
   });
 
+  win.loadURL('http://localhost:3000')  
   win.loadFile(
-    path.join(__dirname, '../apps/frontend/dist/nightly/browser/index.html'),{
-      hash:true
-    }
+    path.join(__dirname, '../apps/frontend/dist/nightly/browser/index.html')
   );
+
+  win.on('closed',()=>{
+    win =null
+  })
 }
 
-app.whenReady().then(() => {
-  backendProcess = spawn('node', [
-    path.join(__dirname, '../apps/backend/dist/main.js')
-  ]);
+app.on('ready',createWindow)
 
-  // espera backend
-  setTimeout(createWindow, 15000);
+app.whenReady().then(() => {
+  backend();
 });
 
 app.on('window-all-closed', () => {
-  backendProcess?.kill();
   app.quit();
 });

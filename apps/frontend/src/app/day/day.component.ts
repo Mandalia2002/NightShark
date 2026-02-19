@@ -15,6 +15,7 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
+import { interval } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -86,8 +87,13 @@ export class DayComponent implements OnInit{
     return c
   }
 
-
   ngOnInit() {
+    let nom
+    nom = interval(1500).subscribe(
+     (val) => { this.dayData()});
+    }
+
+  dayData() {
       this.dia.getDay().subscribe((data: any) => {
       const morning = data.percentage;
       this.b = Math.round(Number(morning)*100)
@@ -164,4 +170,5 @@ export class DayComponent implements OnInit{
       };
   })
   }
+
 }

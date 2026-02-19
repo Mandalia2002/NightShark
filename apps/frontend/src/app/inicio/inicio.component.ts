@@ -1,4 +1,5 @@
-import { Component, inject, OnInit, signal, ViewChild, effect } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { PesoService } from '../peso.service';
 import {
   ApexAxisChartSeries,
@@ -13,7 +14,7 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -34,13 +35,14 @@ export type ChartOptions = {
     ChartComponent,
     FormsModule,
     ReactiveFormsModule,
+    RouterLink,
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
   providers: [PesoService]
 })
 export class InicioComponent implements OnInit {
-  private day = inject(PesoService)
+  private readonly day = inject(PesoService)
 
   perce: any;
 
