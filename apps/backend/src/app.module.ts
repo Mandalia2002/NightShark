@@ -21,16 +21,17 @@ import { RecordsModule } from './records/records.module';
     WeightModule,
     DatabaseModule,
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      // host: 'localhost',
-      // port: 3306,
-      // username: 'root',
-      // password: '123456',
-      // database: 'nightshark',
-      database: 'nightshark.sqlite',
+      type: 'postgres',
+      url: process.env.POSTGRES_URL,
+      // database: 'nightshark.sqlite',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false
+        }
+      }
       // synchronize: false,
     }),
     RecordsModule],
@@ -38,3 +39,9 @@ import { RecordsModule } from './records/records.module';
   providers: [AppService],
 })
 export class AppModule { }
+
+// host: 'localhost',
+// port: 3306,
+// username: 'root',
+// password: '123456',
+// database: 'nightshark',
