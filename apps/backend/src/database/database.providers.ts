@@ -6,16 +6,26 @@ export const databaseProviders = [
     provide: 'DATA_SOURCE',
     useFactory: async () => {
       const dataSource = new DataSource({
-        type: 'mysql',
-        host: 'localhost',
-        port: 3306,
-        username: 'root',
-        password: '123456',
-        database: 'nightshark',
-        entities: [
-            __dirname + '/../**/*.entity{.ts,.js}',
-        ],
-        synchronize: true,
+        type: 'sqlite',
+        // host: 'localhost',
+        // port: 3306,
+        // username: 'root',
+        // password: '123456',
+        // database: 'nightshark',
+        database: 'nightshark.sqlite',
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        synchronize: true
+        // synchronize: false,
+        // type: 'mysql',
+        // host: 'localhost',
+        // port: 3306,
+        // username: 'root',
+        // password: '123456',
+        // database: 'nightshark',
+        // entities: [
+        //     __dirname + '/../**/*.entity{.ts,.js}',
+        // ],
+        // synchronize: true,
       });
 
       return dataSource.initialize();

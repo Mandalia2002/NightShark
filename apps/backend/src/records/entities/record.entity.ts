@@ -31,7 +31,7 @@ export class Record {
     @Column({type:'json'})
     mood_statistics
 
-    @Column({type:'enum', enum: Selection,default: Selection.NULL})
+    @Column({type:'simple-enum', enum: Selection,default: Selection.NULL})
     date_month
 
     @Column({type: 'int'})

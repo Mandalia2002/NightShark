@@ -6,7 +6,7 @@
 - Designed on Figma
 - Front-End done in Angular 21
 - Back-End done with NestJS
-- Database on MySQL (on the future SQLite) created with TypeORM
+- Database on SQLite created with TypeORM
 - On Monorepo (first time making one)
 - Front-End in two versions:
     - Desktop App with Electron Builder

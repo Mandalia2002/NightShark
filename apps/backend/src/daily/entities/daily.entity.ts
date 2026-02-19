@@ -23,6 +23,6 @@ export class Daily {
     @JoinColumn({name: 'habit_id'})
     habit: Habit
 
-    @Column({type: 'enum', enum: Mood, default: Mood.VACIO})
+    @Column({type: 'simple-enum', enum: Mood, default: Mood.VACIO})
     mood
 }
