@@ -30,7 +30,7 @@ export class Night {
     @Column({ type: 'date' })
     date: Date
 
-    @Column({ type: 'double', default: 0.00 })
+    @Column({ type: 'numeric', precision:5,scale:2, default: 0.00 })
     percentage
 
 }

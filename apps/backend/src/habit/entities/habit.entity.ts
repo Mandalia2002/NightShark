@@ -18,7 +18,7 @@ export class Habit {
     @OneToOne(()=> Daily, da=>da.habit)
     daily: Daily
 
-    @Column({type: 'double'})
+    @Column({type: 'numeric', precision:5,scale:2})
     percentage
 
     @Column({ type: 'date' })

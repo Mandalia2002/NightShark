@@ -5,7 +5,7 @@ export class Weight {
     @PrimaryGeneratedColumn()
     id:number
 
-    @Column({type: 'double'})
+    @Column({type: 'float'})
     weight
 
     @Column({type: 'date'})
@@ -14,7 +14,7 @@ export class Weight {
     @Column({type:'date'})
     date_goal: Date
 
-    @Column({type: 'double'})
+    @Column({type: 'float'})
     goal_weight
 
     @Column({type:'boolean', default:false})

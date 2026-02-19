@@ -27,7 +27,7 @@ export class Morning {
     @Column({type: 'date'})
     date: Date
 
-    @Column({type: 'double', default:0})
+    @Column({type: 'numeric', precision:5,scale:2,default:0.00})
     percentage
 
 }
