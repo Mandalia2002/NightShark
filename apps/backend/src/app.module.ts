@@ -23,16 +23,9 @@ import { RecordsModule } from './records/records.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.POSTGRES_URL,
-      // database: 'nightshark.sqlite',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-      autoLoadEntities: true,
-      extra: {
-        ssl: {
-          rejectUnauthorized: false
-        }
-      }
-      // synchronize: false,
+      autoLoadEntities: true
     }),
     RecordsModule],
   controllers: [AppController],
