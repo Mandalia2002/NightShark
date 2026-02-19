@@ -13,7 +13,6 @@ import {
   ApexTooltip
 } from "ng-apexcharts";
 import { PesoService } from '../peso.service';
-import { interval } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -61,13 +60,8 @@ export class InformeComponent implements OnInit {
   Yearpercentage: number = 0;
 
 
-  ngOnInit() {
-    let nom
-    nom = interval(1500).subscribe(
-      (val) => { this.informeData() });
-  }
 
-  informeData() {
+  ngOnInit() {
     this.info.getMonth().subscribe((data) => {
       const a = JSON.stringify(data.habits_improve)
       const b = JSON.parse(a)

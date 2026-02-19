@@ -15,7 +15,6 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
-import { interval } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -90,13 +89,7 @@ export class NightComponent implements OnInit{
     return c
   }
 
-    ngOnInit() {
-      let nom
-      nom = interval(1500).subscribe(
-       (val) => { this.nightData()});
-      }
-
-  nightData() {
+  ngOnInit() {
     this.noche.getNight().subscribe((data: any) => {
       const morning = data.percentage;
       this.b = Math.round(Number(morning) * 100)

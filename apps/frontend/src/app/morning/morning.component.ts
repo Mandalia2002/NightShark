@@ -15,7 +15,6 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
-import { interval } from 'rxjs';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -79,7 +78,7 @@ export class MorningComponent implements OnInit {
       "body": {
         "value": a.body
       },
-      "teethMorn":{
+      "teethMorn": {
         "value": a.teethMorn
       }
     }
@@ -88,14 +87,9 @@ export class MorningComponent implements OnInit {
   }
 
 
-  ngOnInit() {
-    let nom
-    nom = interval(1500).subscribe(
-     (val) => { this.morningData()});
-    }
 
-  private morningData (){
-        this.morning.getMorning().subscribe((data: any) => {
+  ngOnInit() {
+    this.morning.getMorning().subscribe((data: any) => {
       const morning = data.percentage;
       this.b = Math.round(Number(morning) * 100)
 
