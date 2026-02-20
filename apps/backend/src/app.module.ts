@@ -25,6 +25,8 @@ import { RecordsModule } from './records/records.module';
       url: process.env.DATABASE_URL,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
+      autoLoadEntities: true,
+      ssl: { rejectUnauthorized: false },
       // autoLoadEntities: true
     }),
     RecordsModule],
