@@ -34,17 +34,13 @@ button:checked {
 
 .div1 {
     grid-area: 1 / 1 / 2 / 4;
-
-    img {
-        width: auto;
-        height: 20vw;
-    }
 }
 
-.div3{
+.div3 {
     grid-area: 2/1/3/4;
-    display:contents;
-    button{
+    display: contents;
+
+    button {
         margin-top: 1vw;
     }
 }
@@ -72,13 +68,27 @@ button:checked {
     .div1 {
         margin: 1;
 
+        img {
+            margin: 1vw;
+        }
     }
 
     .div2 {
-        margin: 1vw;
+        margin: 2vw;
 
+        a {
+            img {
+                margin: 3vw;
+                height: 15vw;
+            }
+        }
+    }
+
+    .div3 {
         button {
-            margin: 1vw;
+            margin: 2vw;
+            width: 15vw;
+            height: 7vw;
         }
     }
 }
@@ -91,8 +101,8 @@ button:checked {
     }
 
     .div2 {
-        a{
-            img{
+        a {
+            img {
                 margin: 3vw;
             }
         }

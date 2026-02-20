@@ -89,7 +89,34 @@ button:checked {
 }
 
 
-@media (max-width: 504px) {}
+@media (max-width: 504px) {
+     .parent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-column-gap: 2vw;
+        grid-row-gap: 2vw;
+        margin: 1.5vw;
+
+    }
+
+    .parent>div>.text {
+        font-size: 2.5vw;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .div9{
+        align-content: center;
+        justify-content: center;
+        button{
+            margin: 1vw;
+            width: 20vw;
+            height: 7vw;
+        }
+    }
+
+}
 
 @media (min-width: 505px) {
     .parent {

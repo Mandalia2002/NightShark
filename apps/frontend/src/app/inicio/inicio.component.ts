@@ -12,7 +12,8 @@ import {
   ApexStroke,
   ApexXAxis,
   ApexFill,
-  ApexTooltip
+  ApexTooltip,
+  ApexResponsive
 } from "ng-apexcharts";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -27,6 +28,7 @@ export type ChartOptions = {
   tooltip: ApexTooltip | any;
   stroke: ApexStroke | any;
   legend: ApexLegend | any;
+  responsive: ApexResponsive | any;
 };
 
 @Component({
@@ -60,12 +62,23 @@ export class InicioComponent implements OnInit {
       this.chartOptions = {
         series: [habit],
         chart: {
+          width:"100%",
           height: 350,
           type: "radialBar",
           toolbar: {
             show: false
           }
         },
+        responsive: [
+          {
+            breakpoint: 510,
+            options: {
+              chart: {
+                height: 100,
+              }
+            }
+          }
+        ],
         plotOptions: {
           radialBar: {
             startAngle: -135,
@@ -130,12 +143,12 @@ export class InicioComponent implements OnInit {
     });
   }
 
-  boton(){
+  boton() {
     const dat = document.getElementById('mood') as HTMLSelectElement
     const val = {
       mood: dat.value
     }
-    const b = this.day.updateMood(val).subscribe((data: any) => {})
+    const b = this.day.updateMood(val).subscribe((data: any) => { })
     return b
   }
 }

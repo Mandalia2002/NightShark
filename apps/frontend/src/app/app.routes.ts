@@ -8,7 +8,7 @@ import { MorningComponent } from './morning/morning.component';
 import { NightComponent } from './night/night.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo:'Inicio',pathMatch:'full', component: InicioComponent},
+    {path: '',pathMatch:'full', component: InicioComponent},
     {path: 'Inicio', component: InicioComponent},
     {path: 'Informe', component: InformeComponent},
     {path: 'Peso', component: PesoComponent},

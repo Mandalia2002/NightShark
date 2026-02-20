@@ -13,7 +13,8 @@ import {
   ApexStroke,
   ApexXAxis,
   ApexFill,
-  ApexTooltip
+  ApexTooltip,
+  ApexResponsive
 } from "ng-apexcharts";
 
 export type ChartOptions = {
@@ -27,6 +28,7 @@ export type ChartOptions = {
   tooltip: ApexTooltip | any;
   stroke: ApexStroke | any;
   legend: ApexLegend | any;
+  responsive: ApexResponsive | any;
 };
 
 @Component({
@@ -103,6 +105,23 @@ export class NightComponent implements OnInit{
             show: false
           }
         },
+                responsive: [{
+          breakpoint: 504,
+          options: {
+            chart: {
+              height: 200
+            },
+          plotOptions: {
+            radialBar: {
+              dataLabels: {
+                value: {
+                  fontSize: "22px"
+                }
+              }
+            }
+          }
+        }
+        }],
         plotOptions: {
           radialBar: {
             startAngle: -135,
