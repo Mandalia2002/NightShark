@@ -59,8 +59,6 @@ export class InformeComponent implements OnInit {
 
   Yearpercentage: number = 0;
 
-
-
   ngOnInit() {
     this.info.getMonth().subscribe((data) => {
       const a = JSON.stringify(data.habits_improve)
@@ -72,7 +70,7 @@ export class InformeComponent implements OnInit {
       this.mood_statistics = Object.getOwnPropertyNames(data.mood_statistics)
       this.percentage = Math.round(data.percentages)
       this.chartOptions = {
-        series: [this.percentage],
+        series: [this.percentage??0],
         chart: {
           height: 250,
           type: "radialBar",
@@ -153,7 +151,7 @@ export class InformeComponent implements OnInit {
       this.Yearmood_statistics = Object.getOwnPropertyNames(data.mood_statistics)
       this.Yearpercentage = Math.round(data.percentages)
       this.chartOptions2 = {
-        series: [this.Yearpercentage],
+        series: [this.Yearpercentage??0],
         chart: {
           height: 250,
           type: "radialBar",
