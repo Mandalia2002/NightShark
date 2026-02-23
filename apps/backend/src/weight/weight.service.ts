@@ -60,8 +60,8 @@ export class WeightService {
       if (!goal) return "Not Found"
       const dateNow = new Date()
       dateNow.setHours(0, 0, 0, 0)
-      const dateGoal = new Date(goal.date_weight+"T23:01:06.316Z")
-      dateGoal.setHours(0,0,0,0)
+      const dateGoal = new Date(goal.date_weight + "T23:01:06.316Z")
+      dateGoal.setHours(0, 0, 0, 0)
       let days
       let dat = goal.worked_days
       if (dateGoal.getTime() === dateNow.getTime()) {
@@ -91,8 +91,8 @@ export class WeightService {
   async update(updateWeightDto: UpdateWeightDto) {
     const goal = await this.WeightRepository.findOne({ where: { done: false } })
     if (!goal) return "Not Found"
-    let dat 
-    if(updateWeightDto.date_goal) dat =  new Date(updateWeightDto.date_goal)
+    let dat
+    if (updateWeightDto.date_goal) dat = new Date(updateWeightDto.date_goal)
     goal.date_goal = dat || goal.date_goal
     goal.goal_weight = updateWeightDto.goal_weight || goal.goal_weight
     const sas = await this.WeightRepository.save(goal)
@@ -103,12 +103,12 @@ export class WeightService {
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
     const goal = await this.WeightRepository.findOne({ where: { done: false } })
-    if (!goal) return 'Not Found'
-    let done = true
-    goal.done = done
-    const assasas = await this.WeightRepository.save(goal)
+    if (goal) {
+      let done = true
+      goal.done = done
+      await this.WeightRepository.save(goal)
+    }
     const a = await this.create(crear)
-
     return a
   }
 
