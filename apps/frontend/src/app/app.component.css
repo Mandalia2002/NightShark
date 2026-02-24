@@ -2,8 +2,14 @@ router-outlet {
         background-color: #100928;
 }
 
-html {
+html,
+body {
         background-color: #100928;
+        margin: 0;
+        padding: 0;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
 }
 
 .parent {
@@ -50,12 +56,13 @@ html {
                 align-content: center;
 
                 a {
-                        .ima1{
+                        .ima1 {
                                 height: 18vw;
-                                margin:1vw;
+                                margin: 1vw;
 
                         }
-                        .ima2{
+
+                        .ima2 {
                                 height: 20vw;
                         }
                 }

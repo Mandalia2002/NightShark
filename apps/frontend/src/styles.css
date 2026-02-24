@@ -6,23 +6,32 @@
 
 ::view-transition-old(count),
 ::view-transition-new(count) {
-  animation-duration: 150ms;
-  animation-name: -ua-view-transition-fade-in;
+    animation-duration: 150ms;
+    animation-name: -ua-view-transition-fade-in;
 }
 
-app-root{
-    backdrop-filter: blur(50%); 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+app-root {
+    display: block;
+    min-height: 100vh;
+    backdrop-filter: blur(50%);
 }
 
 .background {
     position: fixed;
     width: 100vw;
     height: 100vh;
+    z-index: -1;
     top: 0;
     left: 0;
     background: #653e80;
     background: linear-gradient(180deg, rgb(68, 42, 87) 0%, rgba(23, 18, 40, 1) 50%);
-    overflow: hidden;
 }
 
 .background span {
@@ -33,16 +42,14 @@ app-root{
     position: absolute;
     animation: move linear infinite;
     animation-duration: 5;
-    background: radial-gradient(
-        circle at 30% 30%,
-        rgba(255, 255, 255, 0.35),
-        currentColor 40%,
-        rgba(0, 0, 0, 0.35) 85%
-    );
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 255, 255, 0.35),
+            currentColor 40%,
+            rgba(0, 0, 0, 0.35) 85%);
 
-        box-shadow: 
-        inset -1vmin -1vmin 2vmin rgba(0,0,0,0.4),
-        inset 1vmin 1vmin 2vmin rgba(255,255,255,0.15);
+    box-shadow:
+        inset -1vmin -1vmin 2vmin rgba(0, 0, 0, 0.4),
+        inset 1vmin 1vmin 2vmin rgba(255, 255, 255, 0.15);
 }
 
 

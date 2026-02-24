@@ -6,7 +6,7 @@
 - Designed on Figma
 - Front-End done in Angular 21
 - Back-End done with NestJS
-- Database on SQLite created with TypeORM
+- Database on Postgres created with TypeORM
 - On Monorepo (first time making one)
 - Front-End in two versions:
     - Desktop App with Electron Builder
@@ -38,8 +38,17 @@
 
 #### Phase 4:
 <p>Creating the app (Desktop Version)</p>
-<p>The Front-End is prepared to be packaged with Electron-Builder with the Back-End deployed on Vercel</p>
-<p>Its almost finished, im working on the tweaking of somethings on the Back-End side before deploying it on Vercel</p>
+<p>Due to the project being done on Angular (Web page) i came across to the idea of "packaging" a process where an existing project is transformed into another type due to the same structure</p>
+<p>The good news: Man i dont have to do anything to my code</p>
+<p>The bad news: im going to need to host my back-end code somewhere else</p>
+<p>So when i commented that situation to a couple of friends (Galletas de Animalitos) one of them recommended to me Vercel for hosting</p>
+
+<p>So i decided to change my database (for the third time) to Postgres to use SupaBase and host my NestJS project on Vercel</p>
+<p>and with that my desktop app is completed</p>
+
+<img src="versions\DesktopApp.png">
+
+<p>Finished!!! 20-Feb-2026</p>
 
 #### Phase 5:
 <p>Creating the app (Mobile Version)</p>

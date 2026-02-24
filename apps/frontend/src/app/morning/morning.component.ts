@@ -108,7 +108,7 @@ export class MorningComponent implements OnInit {
           breakpoint: 504,
           options: {
             chart: {
-              height: 200
+              height: 150
             },
           plotOptions: {
             radialBar: {
