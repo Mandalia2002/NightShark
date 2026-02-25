@@ -67,7 +67,10 @@ button:checked {
         grid-template-rows: auto;
         /* grid-column-gap: 2vw; */
         grid-row-gap: 2vw;
-        margin: 1vw;
+        margin-top: 5vw;
+        margin-left: 2vw;
+        margin-right: 2vw;
+
     }
 
     .parent>div {
@@ -106,6 +109,7 @@ button:checked {
         align-items: center;
 
         button {
+            margin: 5vw;
             width: 20vw;
             height: 7vw;
         }
@@ -140,7 +144,6 @@ button:checked {
         grid-template-rows: repeat(4, 1fr);
         grid-column-gap: 1vw;
         grid-row-gap: 1vw;
-        overflow-y: scroll;
     }
 
     .parent>div {

@@ -41,13 +41,27 @@ body {
 
 
 @media (max-width: 504px) {
+        .parent {
+                display: grid;
+                position: sticky;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                grid-row-gap: 2vw;
+                margin: 1vw;
+        }
+
         .div1 {
                 grid-area: 1 / 1 / 2 / 4;
+                overflow-y: auto;
+                height:160vw;
 
         }
 
         .div2 {
                 grid-area: 2 / 1 / 4 / 4;
+                position: fixed;
+                justify-self: center;
+                z-index: -1;
         }
 
         .Menu {
