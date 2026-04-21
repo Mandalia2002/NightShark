@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { HabitService } from '../habit/habit.service';
 import { UpdateDailyDto } from './dto/update-daily.dto';
+import { DateTime} from 'luxon';
 
 @Injectable()
 export class DailyService {
@@ -15,11 +16,10 @@ export class DailyService {
   ) { }
 
   async createNewDay() {
-    process.env.TZ = 'America/Tijuana';
+    const date = DateTime.now().setZone('America/Tijuana')
+    console.log(date)
     const dateNow = new Date()
-    console.log(dateNow)
     dateNow.setHours(0, 0, 0, 0)
-    console.log(dateNow)
     const sun = await this.DailyRepository.findOne({ where: { date: dateNow } })
     if (sun) { return sun }
     const habit = await this.Habit.create()
