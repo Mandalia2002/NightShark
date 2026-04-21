@@ -17,6 +17,7 @@ export class DailyService {
   async createNewDay() {
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
+    console.log(dateNow)
     const sun = await this.DailyRepository.findOne({ where: { date: dateNow } })
     if (sun) { return sun }
     const habit = await this.Habit.create()
