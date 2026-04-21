@@ -17,7 +17,7 @@ export class DailyService {
 
   async createNewDay() {
     const date = DateTime.now().setZone('America/Tijuana')
-    console.log(date.ts)
+    console.log(date.toISO())
     const dateNow = new Date()
     dateNow.setHours(0, 0, 0, 0)
     const sun = await this.DailyRepository.findOne({ where: { date: dateNow } })
