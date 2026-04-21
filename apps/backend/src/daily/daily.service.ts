@@ -17,15 +17,14 @@ export class DailyService {
 
   async createNewDay() {
     const date = DateTime.now().setZone('America/Tijuana')
-    console.log(date.toISO())
-    const dateNow = new Date()
-    dateNow.setHours(0, 0, 0, 0)
-    const sun = await this.DailyRepository.findOne({ where: { date: dateNow } })
+    const startDate = date.startOf('day')
+    const formattedDate = startDate.toUTC()
+    const sun = await this.DailyRepository.findOne({ where: { date: formattedDate } })
     if (sun) { return sun }
     const habit = await this.Habit.create()
     const all = {
       habit: habit.id,
-      date: dateNow
+      date: formattedDate
     }
 
     const a = this.DailyRepository.create(all)
