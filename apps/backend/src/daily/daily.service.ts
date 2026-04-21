@@ -16,6 +16,7 @@ export class DailyService {
 
   async createNewDay() {
     const dateNow = new Date()
+    console.log(dateNow)
     dateNow.setHours(0, 0, 0, 0)
     console.log(dateNow)
     const sun = await this.DailyRepository.findOne({ where: { date: dateNow } })
