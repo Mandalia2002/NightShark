@@ -52,4 +52,7 @@
 
 #### Phase 5:
 <p>Creating the app (Mobile Version)</p>
-<p>The plan is to also turn this into a Mobile App using Cordova</p>
+<p>The plan is to also turn this into a Mobile App using Corbova but i ended up using Ionic to import the project into the Mobile enviroment, it worked and its functional but right now i want to get better</p>
+
+#### Extra Phase:
+<p>Trying to do this project on Flutter/Dart</p>
